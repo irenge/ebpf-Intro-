@@ -23,19 +23,16 @@
 	The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++)  for user-level interface.
 BCC repository has more than 70 BPF tools for performance and analysis. We will go through 12 BCC tools.
 		- execsnoop - works by tracing the execve(2) system call and reveal processes that may be shortlived that they are invisible to other tools like ps. 
-	<pre>  execsnoop </pre>
-<pre> PCOMM            PID    PPID   RET ARGS </pre>
-<pre> dhcpcd-run-hook  29407  2642     0 /lib/dhcpcd/dhcpcd-run-hooks</pre>  
-<pre> sed              29410  29409    0 /bin/sed -n s/^domain //p wlan0.dhcp </pre>
- 
-<pre> sed              29412  29411    0 /bin/sed -n s/^search //p wlan0.dhcp </pre>
-     
+<pre>  execsnoop 
+PCOMM            PID    PPID   RET ARGS 
+dhcpcd-run-hook  29407  2642     0 /lib/dhcpcd/dhcpcd-run-hooks  
+sed              29410  29409    0 /bin/sed -n s/^domain //p wlan0.dhcp
+sed              29412  29411    0 /bin/sed -n s/^search //p wlan0.dhcp 
 sed              29415  29414    0 /bin/sed -n s/^nameserver //p wlan0.dhcp
 cmp              29417  29407    0 /usr/bin/cmp -s /etc/resolv.conf /run/dhcpcd/hook-state/resolv.conf.wlan0.ra
 rm               29418  29407    0 /bin/rm -f /run/dhcpcd/hook-state/resolv.conf.wlan0.ra 
 rm               29419  29407    0 /bin/rm -f /run/dhcpcd/hook-state/resolv.conf.wlan0.ra  
-qemu-system-x86  29422  27546    0 /usr/bin/qemu-system-x86_64 -m 4096 -smp 8 -net nic,model=e1000 -net user,host=10.0.2.10,hostfwd=tcp::45506-:22 -display none -serial stdio -no-reboot -enable-kvm -cpu host,migratable=off -hda /home/jules/work/report/syzVegas/image/stretch.img -snapshot </pre>
-	
-
+qemu-system-x86  29422  27546    0 /usr/bin/qemu-system-x86_64 -m 4096 -smp 8 -net nic,model=e1000 -net user,host=10.0.2.10,hostfwd=tcp::45506-:22 -display none -serial stdio -no-reboot -enable-kvm -cpu host,migratable=off -hda /home/jules/work/report/syzVegas/image/stretch.img -snapshot	
+</pre>
 bpftrace
   Front end that provides a special purpose high level lanbguage for developing BPF tools
