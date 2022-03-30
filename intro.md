@@ -36,15 +36,14 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 		opensnoop can be used to troubleshoot failing software which may be attempting to open files from a wrong path as well as determine where the config and log files are kept.
 		<pre>jules # opensnoop -T
 		TIME(s)       PID    COMM               FD ERR PATH
-		0.000000000   11552  baloo_file_extr    20   0 /home/jules/Desktop/kernel_work/linux/arch/x86/include/generated/uapi/asm/unistd_32.h
-		0.000433000   11552  baloo_file_extr    20   0 /home/jules/Desktop/kernel_work/linux/arch/x86/include/generated/uapi/asm/unistd_64.h
-		0.000764000   11552  baloo_file_extr    20   0 /home/jules/Desktop/kernel_work/linux/arch/x86/include/generated/uapi/asm/unistd_x32.h
-		0.001084000   11552  baloo_file_extr    20   0 /home/jules/Desktop/kernel_work/linux/arch/x86/include/generated/asm/syscalls_32.h
-		0.001391000   11552  baloo_file_extr    20   0 /home/jules/Desktop/kernel_work/linux/arch/x86/include/generated/asm/unistd_32_ia32.h
-		0.001685000   11552  baloo_file_extr    20   0 /home/jules/Desktop/kernel_work/linux/arch/x86/include/generated/asm/unistd_64_x32.h
+		0.000000000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_32.h
+		0.000433000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_64.h
+		0.000764000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_x32.h
+		0.001084000   11552  baloo_file_extr    20   0 /home/jules/../linux/../syscalls_32.h
+		0.001391000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_32_ia32.h
+		0.001685000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_64_x32.h
 		0.079771000   3486   qemu-system-x86    23   0 /etc/resolv.conf
 		0.422395000   11858  Chrome_IOThread   389   0 /dev/shm/.com.google.Chrome.ct746O
-		0.422408000   11858  Chrome_IOThread   394   0 /dev/shm/.com.google.Chrome.ct746O
 		</pre>
 
 
