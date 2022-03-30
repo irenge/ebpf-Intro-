@@ -29,7 +29,7 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 		dhcpcd-run-hook  29407  2642     0 /lib/dhcpcd/dhcpcd-run-hooks
 		sed              29410  29409    0 /bin/sed -n s/^domain //p wlan0.dhcp
 		cmp              29417  29407    0 /usr/bin/cmp -s /etc/resolv.conf ../resolv.conf.wlan0.ra
-		qemu-system-x86  29422  27546    0 /usr/bin/qemu-system-x86_64 -m 4096 -smp 8 ... -snapshot</pre>
+		qemu-system-x86  29422  27546    0 /usr/bin/qemu-system-x86_64 -m 4096 -smp 8 ... -snapshot </pre>
 		
 		- opensnoop<br/>
 		The tool prints one line of the output per each open() system call with details. 
@@ -44,7 +44,8 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 		0.001391000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_32_ia32.h
 		0.001685000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_64_x32.h
 		0.079771000   3486   qemu-system-x86    23   0 /etc/resolv.conf
-		0.422395000   11858  Chrome_IOThread   389   0 /dev/shm/.com.google.Chrome.ct746O</pre>
+		0.422395000   11858  Chrome_IOThread   389   0 /dev/shm/.com.google.Chrome.ct746O </pre>
+		
 		- ext4slower
 		<pre># ext4slower
                 Tracing ext4 operations slower than 10 ms
