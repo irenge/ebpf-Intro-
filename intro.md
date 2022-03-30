@@ -29,8 +29,7 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 	dhcpcd-run-hook  29407  2642     0 /lib/dhcpcd/dhcpcd-run-hooks
 	sed              29410  29409    0 /bin/sed -n s/^domain //p wlan0.dhcp
 	cmp              29417  29407    0 /usr/bin/cmp -s /etc/resolv.conf /run/dhcpcd/hook-state/resolv.conf.wlan0.ra
-	qemu-system-x86  29422  27546    0 /usr/bin/qemu-system-x86_64 -m 4096 -smp 8 ... -snapshot	
-       </pre>
+	qemu-system-x86  29422  27546    0 /usr/bin/qemu-system-x86_64 -m 4096 -smp 8 ... -snapshot</pre>
 
 bpftrace
   Front end that provides a special purpose high level lanbguage for developing BPF tools
