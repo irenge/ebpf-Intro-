@@ -53,9 +53,10 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
                 22:16:12 baloo_file_ext 4458   S 0       0         134.65 index
                 22:16:16 baloo_file_ext 4458   S 0       0         151.65 index
                 22:16:20 baloo_file_ext 4458   S 0       0         172.81 index
-                22:16:25 baloo_file_ext 4458   W 60678144 5098540    11.48 index</pre>
+                22:16:25 baloo_file_ext 4458   W 60678144 5098540    11.48 index </pre>
 
-                - biolatency
+                - biolatency <br/>
+
                 <pre># biolatency
                 Tracing block device I/O... Hit Ctrl-C to end.
                 ^C
