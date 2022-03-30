@@ -23,7 +23,7 @@
 	The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++)  for user-level interface.
 BCC repository has more than 70 BPF tools for performance and analysis. We will go through 12 BCC tools.
 		- execsnoop - works by tracing the execve(2) system call and reveal processes that may be shortlived that they are invisible to other tools like ps. 
-		jules # execsnoop
+		`jules # execsnoop
 PCOMM            PID    PPID   RET ARGS
 dhcpcd-run-hook  29407  2642     0 /lib/dhcpcd/dhcpcd-run-hooks
 sed              29410  29409    0 /bin/sed -n s/^domain //p wlan0.dhcp
@@ -38,8 +38,7 @@ scp              29447  27546    0 /usr/bin/scp -P 45506 -F /dev/null -o UserKno
 ssh              29448  29447    0 /usr/bin/ssh -x -oPermitLocalCommand=no -oClearAllForwardings=yes -oRemoteCommand=none -oRequestTTY=no -F /dev/null -o UserKnownHostsFile=/dev/null -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -o ConnectTimeout=10 -i /home/jules/work/report/syzVegas/image/stretch.id_rsa
 scp              29449  27546    0 /usr/bin/scp -P 45506 -F /dev/null -o UserKnownHostsFile=/dev/null -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -o ConnectTimeout=10 -i /home/jules/work/report/syzVegas/image/stretch.id_rsa /home/jules/work/report/syzVegas/gopath/src/github.com/google/syzkaller/bin/linux_amd64/syz-executor root@localhost:/syz-executor
 ssh              29450  29449    0 /usr/bin/ssh -x -oPermitLocalCommand=no -oClearAllForwardings=yes -oRemoteCommand=none -oRequestTTY=no -F /dev/null -o UserKnownHostsFile=/dev/null -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -o ConnectTimeout=10 -i /home/jules/work/report/syzVegas/image/stretch.id_rsa
-ssh              29451  27546    0 /usr/bin/ssh -p 45506 -F /dev/null -o UserKnownHostsFile=/dev/null -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -o ConnectTimeout=10 -i /home/jules/work/report/syzVegas/image/stretch.id_rsa root@localhost cd / && /syz-fuzzer -executor=/syz-executor -name=vm-1 -arch=amd64 -manager=10.0.2.10:36111 -sandbox=none -procs=8 -cover=true -
-
+ssh              29451  27546    0 /usr/bin/ssh -p 45506 -F /dev/null -o UserKnownHostsFile=/dev/null -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -o ConnectTimeout=10 -i /home/jules/work/report/syzVegas/image/stretch.id_rsa root@localhost cd / && /syz-fuzzer -executor=/syz-executor -name=vm-1 -arch=amd64 -manager=10.0.2.10:36111 -sandbox=none -procs=8 -cover=true -`
 	
 
 bpftrace
