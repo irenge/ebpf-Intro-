@@ -34,6 +34,7 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 		- opensnoop<br/>
 		The tool prints one line of the output per each open() system call with details. 
 		opensnoop can be used to troubleshoot failing software which may be attempting to open files from a wrong path as well as determine where the config and log files are kept.
+		
 		<pre># opensnoop -T
 		TIME(s)       PID    COMM               FD ERR PATH
 		0.000000000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_32.h
@@ -45,6 +46,7 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 		0.079771000   3486   qemu-system-x86    23   0 /etc/resolv.conf
 		0.422395000   11858  Chrome_IOThread   389   0 /dev/shm/.com.google.Chrome.ct746O
 		</pre>
+		
 		<pre># ext4slower
                 Tracing ext4 operations slower than 10 ms
                 TIME     COMM           PID    T BYTES   OFF_KB   LAT(ms) FILENAME
@@ -54,6 +56,7 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
                 22:16:20 baloo_file_ext 4458   S 0       0         172.81 index
                 22:16:25 baloo_file_ext 4458   W 60678144 5098540    11.48 index
                 </pre>
+
                 - biolatency<br/>
                 <pre># biolatency
                 Tracing block device I/O... Hit Ctrl-C to end.
@@ -72,6 +75,8 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
                 1024 -> 2047       : 21       |**                                      |
                 2048 -> 4095       : 1        |                                        |
                 </pre>
+		
+		- biosnoop
 		<pre># biosnoop
 		TIME(s)     COMM           PID    DISK    T SECTOR     BYTES  LAT(ms)
 		0.000000    kworker/23:1   9126           R 18446744073709551615 0         0.61
