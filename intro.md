@@ -72,7 +72,7 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
                 1024 -> 2047       : 21       |**                                      |
                 2048 -> 4095       : 1        |                                        |
                 </pre>
-		<pre>>#  biosnoop
+		<pre># biosnoop
 		TIME(s)     COMM           PID    DISK    T SECTOR     BYTES  LAT(ms)
 		0.000000    kworker/23:1   9126           R 18446744073709551615 0         0.61
 		1.774198    ThreadPoolFore 5270   nvme0n1 W 520198144  225280    0.48
