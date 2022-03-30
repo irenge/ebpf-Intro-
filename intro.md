@@ -19,7 +19,7 @@
 
     When kernel engineers speak about observability, they refer to tracing, an event-based recording. Tools such as strace and tcpdump can be a good example. BPF provides tools that give extra informations:
 
-a. BCC 
+- BCC 
   BPF compiler collection (BCC) is a high level tracing framework developed for BPF.
   The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++)  for user-level interface.
 
