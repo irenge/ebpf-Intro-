@@ -23,7 +23,7 @@
 	The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++)  for user-level interface.
 BCC repository has more than 70 BPF tools for performance and analysis. We will go through 12 BCC tools.
 		- execsnoop - works by tracing the execve(2) system call and reveal processes that may be shortlived that they are invisible to other tools like ps. 
-<pre> # execsnoop 
+<pre># execsnoop 
 PCOMM            PID    PPID   RET ARGS 
 dhcpcd-run-hook  29407  2642     0 /lib/dhcpcd/dhcpcd-run-hooks  
 sed              29410  29409    0 /bin/sed -n s/^domain //p wlan0.dhcp
