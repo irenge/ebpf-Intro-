@@ -10,18 +10,16 @@
    An eBPF program is attached to a designated code path in the Kernel.
    When a code path is traversed, any attached eBPF programs are executed.
 
-   
+
    BPF is composed of an instruction set, storage objects and helper functions. 
-   The main use of BPF are networking, observability and security. 
+   The main use of BPF are networking, observability and security.
+   In this introduction, we will focus on the main frony-end BPF tools used in observability.
 
-1. Observability
+1. BPF front-end
 
-    Tracing  is event-based recording
-     eg. strace
-     tcpdump 
+    When kernel engineers speak about observability, they refer to tracing, an event-based recording. Tools such as strace and tcpdump can be a good example. BPF provides tools that give extra informations:
 
-
-BCC 
+a. BCC 
   BPF compiler collection (BCC) is a high level tracing framework developed for BPF.
   The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++)  for user-level interface.
 
