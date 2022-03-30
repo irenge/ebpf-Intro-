@@ -34,7 +34,7 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 		- opensnoop<br/>
 		The tool prints one line of the output per each open() system call with details. 
 		opensnoop can be used to troubleshoot failing software which may be attempting to open files from a wrong path as well as determine where the config and log files are kept.
-		<pre>jules # opensnoop -T
+		<pre># opensnoop -T
 		TIME(s)       PID    COMM               FD ERR PATH
 		0.000000000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_32.h
 		0.000433000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_64.h
