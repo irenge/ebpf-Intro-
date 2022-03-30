@@ -45,7 +45,33 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 		0.079771000   3486   qemu-system-x86    23   0 /etc/resolv.conf
 		0.422395000   11858  Chrome_IOThread   389   0 /dev/shm/.com.google.Chrome.ct746O
 		</pre>
-
+		<pre># ext4slower
+                Tracing ext4 operations slower than 10 ms
+                TIME     COMM           PID    T BYTES   OFF_KB   LAT(ms) FILENAME
+                22:16:08 baloo_file_ext 4458   S 0       0         125.20 index
+                22:16:12 baloo_file_ext 4458   S 0       0         134.65 index
+                22:16:16 baloo_file_ext 4458   S 0       0         151.65 index
+                22:16:20 baloo_file_ext 4458   S 0       0         172.81 index
+                22:16:25 baloo_file_ext 4458   W 60678144 5098540    11.48 index
+                </pre>
+                - biolatency<br/>
+                <pre># biolatency
+                Tracing block device I/O... Hit Ctrl-C to end.
+                ^C
+                usecs               : count     distribution
+                0 -> 1          : 0        |                                        |
+                2 -> 3          : 0        |                                        |
+                4 -> 7          : 3        |                                        |
+                8 -> 15         : 115      |**************                          |
+                16 -> 31         : 49       |******                                  |
+                32 -> 63         : 36       |****                                    |
+                64 -> 127        : 1        |                                        |
+                128 -> 255        : 286      |************************************    |
+                256 -> 511        : 160      |********************                    |
+                512 -> 1023       : 315      |****************************************|
+                1024 -> 2047       : 21       |**                                      |
+                2048 -> 4095       : 1        |                                        |
+                </pre>
 
 bpftrace
 
