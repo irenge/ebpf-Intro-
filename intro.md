@@ -7,10 +7,11 @@
    advanced performance analysis tools.
    
    BPF provides a way to run mini programs on wide variety of kernel and application events.
-   It allows the kernel to run mini program on system and application events such as disk I/O
-   
-   BPF is composed of an instruction set, storage objects anbd helper functions. 
+   An eBPF program is attached to a designated code path in the Kernel.
+   When a code path is traversed, any attached eBPF programs are executed.
 
+   
+   BPF is composed of an instruction set, storage objects and helper functions. 
    The main use of BPF are networking, observability and security. 
 
 1. Observability
