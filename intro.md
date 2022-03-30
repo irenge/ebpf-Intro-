@@ -44,9 +44,8 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 		0.001391000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_32_ia32.h
 		0.001685000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_64_x32.h
 		0.079771000   3486   qemu-system-x86    23   0 /etc/resolv.conf
-		0.422395000   11858  Chrome_IOThread   389   0 /dev/shm/.com.google.Chrome.ct746O
-		</pre>
-		
+		0.422395000   11858  Chrome_IOThread   389   0 /dev/shm/.com.google.Chrome.ct746O</pre>
+		- ext4slower
 		<pre># ext4slower
                 Tracing ext4 operations slower than 10 ms
                 TIME     COMM           PID    T BYTES   OFF_KB   LAT(ms) FILENAME
@@ -54,10 +53,9 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
                 22:16:12 baloo_file_ext 4458   S 0       0         134.65 index
                 22:16:16 baloo_file_ext 4458   S 0       0         151.65 index
                 22:16:20 baloo_file_ext 4458   S 0       0         172.81 index
-                22:16:25 baloo_file_ext 4458   W 60678144 5098540    11.48 index
-                </pre>
+                22:16:25 baloo_file_ext 4458   W 60678144 5098540    11.48 index</pre>
 
-                - biolatency<br/>
+                - biolatency
                 <pre># biolatency
                 Tracing block device I/O... Hit Ctrl-C to end.
                 ^C
@@ -73,8 +71,7 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
                 256 -> 511        : 160      |********************                    |
                 512 -> 1023       : 315      |****************************************|
                 1024 -> 2047       : 21       |**                                      |
-                2048 -> 4095       : 1        |                                        |
-                </pre>
+                2048 -> 4095       : 1        |                                        |</pre>
 		
 		- biosnoop
 		<pre># biosnoop
@@ -90,8 +87,7 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 		2.159341    ?              0              R 0          0         0.20
 		2.159387    ThreadPoolFore 5270   nvme0n1 W 15221256   8192      0.01
 		2.159598    ?              0              R 0          0         0.20
-		2.159713    jbd2/nvme0n1p3 686    nvme0n1 W 490161432  53248     0.02
-		</pre>
+		2.159713    jbd2/nvme0n1p3 686    nvme0n1 W 490161432  53248     0.02</pre>
 
 
 bpftrace
