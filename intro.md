@@ -71,7 +71,6 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
                 512 -> 1023       : 315      |****************************************|
                 1024 -> 2047       : 21       |**                                      |
                 2048 -> 4095       : 1        |                                        |
-
 		</pre>
 		- biosnoop
 		<pre># biosnoop
@@ -89,7 +88,7 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 		2.159598    ?              0              R 0          0         0.20
 		2.159713    jbd2/nvme0n1p3 686    nvme0n1 W 490161432  53248     0.02</pre>
 		- tcpconnect
-		<pre> # tcpconnect 
+		<pre># tcpconnect 
 		Tracing connect ... Hit Ctrl-C to end
 		PID    COMM         IP SADDR            DADDR            DPORT 
 		4909   Chrome_Child 4  192.168.1.245    40.74.98.194     443    
@@ -103,7 +102,7 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 		4909   Chrome_Child 4  192.168.1.245    13.89.179.10     443    
 		5564   Chrome_Child 4  192.168.1.245    142.250.179.229  443</pre>
    	        - tcpretrans
-		<pre> # tcpretrans
+		<pre># tcpretrans
 	    	Tracing retransmits ... Hit Ctrl-C to end
 	    	TIME     PID    IP LADDR:LPORT          T> RADDR:RPORT          STATE
 	    	22:36:32 0      4  192.168.1.245:42072  R> 13.33.52.19:443      ESTABLISHED
@@ -114,16 +113,7 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 	    	22:39:51 1372   4  192.168.1.245:59090  R> 142.250.179.229:443  ESTABLISHED
 	    	22:39:51 1375   4  192.168.1.245:59092  R> 142.250.179.229:443  ESTABLISHED
 	    	22:47:50 0      4  192.168.1.245:52052  R> 34.237.73.95:443     ESTABLISHED
-	    	22:47:50 0      4  192.168.1.245:59070  R> 142.250.179.229:443  ESTABLISHED
-	    	22:48:03 0      4  192.168.1.242:42663  R> 52.113.199.40:443    ESTABLISHED
-	    	22:48:03 0      4  192.168.1.242:42663  R> 52.113.199.40:443    ESTABLISHED
-	    	22:48:03 0      4  192.168.1.242:42663  R> 52.113.199.40:443    ESTABLISHED
-	    	22:48:04 0      4  192.168.1.242:42663  R> 52.113.199.40:443    ESTABLISHED
-	    	22:48:29 0      4  192.168.1.245:42434  R> 140.82.114.26:443    ESTABLISHED
-	    	22:49:00 0      4  192.168.1.245:55232  R> 34.120.5.221:443     ESTABLISHED
-	    	22:49:01 0      4  192.168.1.245:55232  R> 34.120.5.221:443     ESTABLISHED
-	    	22:49:01 0      4  192.168.1.245:55636  R> 52.20.33.177:443     ESTABLISHED
-	    	22:49:02 0      4  192.168.1.245:55636  R> 52.20.33.177:443     ESTABLISHED </pre>
+	    	22:47:50 0      4  192.168.1.245:59070  R> 142.250.179.229:443  ESTABLISHED</pre>
 
 
 bpftrace
