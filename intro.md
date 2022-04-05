@@ -88,6 +88,21 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 		2.159387    ThreadPoolFore 5270   nvme0n1 W 15221256   8192      0.01
 		2.159598    ?              0              R 0          0         0.20
 		2.159713    jbd2/nvme0n1p3 686    nvme0n1 W 490161432  53248     0.02</pre>
+		- tcpconnect
+		<pre> # tcpconnect 
+		Tracing connect ... Hit Ctrl-C to end
+		PID    COMM         IP SADDR            DADDR            DPORT 
+		4909   Chrome_Child 4  192.168.1.245    40.74.98.194     443    
+		4909   Chrome_Child 4  192.168.1.245    40.74.98.194     443    
+		5564   Chrome_Child 4  192.168.1.245    172.217.16.238   443    
+		4909   Chrome_Child 4  192.168.1.245    52.97.208.18     443    
+		5564   Chrome_Child 4  192.168.1.245    142.250.200.14   443    
+		5564   Chrome_Child 4  192.168.1.245    35.206.151.171   443    
+		4909   Chrome_Child 4  192.168.1.245    52.113.205.5     443    
+		5564   Chrome_Child 4  192.168.1.245    34.131.36.146    443    
+		4909   Chrome_Child 4  192.168.1.245    13.89.179.10     443    
+		5564   Chrome_Child 4  192.168.1.245    142.250.179.229  443    
+   </pre>
 
 
 bpftrace
