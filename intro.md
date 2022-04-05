@@ -114,6 +114,20 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 	    	22:39:51 1375   4  192.168.1.245:59092  R> 142.250.179.229:443  ESTABLISHED
 	    	22:47:50 0      4  192.168.1.245:52052  R> 34.237.73.95:443     ESTABLISHED
 	    	22:47:50 0      4  192.168.1.245:59070  R> 142.250.179.229:443  ESTABLISHED</pre>
+		- dcsnoop
+		<pre># dcsnoop
+	        TIME(s)     PID    COMM             T FILE
+		4.251881    5564   ThreadPoolForeg  M .com.google.Chrome.SHfObm
+		5.123501    5513   Chrome_IOThread  M .com.google.Chrome.u9ddWB
+		5.129829    5513   Chrome_IOThread  M .com.google.Chrome.xF5o8V
+		5.136616    5513   Chrome_IOThread  M .com.google.Chrome.7pFl5x
+		5.337782    4909   ThreadPoolForeg  M temp-index
+		6.137998    5513   Chrome_IOThread  M .com.google.Chrome.6D4b3D
+		6.628683    5513   Chrome_IOThread  M .com.google.Chrome.lBIYIm
+		6.629692    5564   ThreadPoolForeg  M 27976406cc9ab9e4_0
+		6.745617    5513   Chrome_IOThread  M .com.google.Chrome.R2RH2Y
+		7.152058    5513   Chrome_IOThread  M .com.google.Chrome.1APQeW
+
 
 
 bpftrace
