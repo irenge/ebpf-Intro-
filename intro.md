@@ -101,7 +101,7 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 		5564   Chrome_Child 4  192.168.1.245    34.131.36.146    443    
 		4909   Chrome_Child 4  192.168.1.245    13.89.179.10     443    
 		5564   Chrome_Child 4  192.168.1.245    142.250.179.229  443</pre>
-   	        - tcpretrans
+		- tcpretrans
 		<pre># tcpretrans
 	    	Tracing retransmits ... Hit Ctrl-C to end
 	    	TIME     PID    IP LADDR:LPORT          T> RADDR:RPORT          STATE
