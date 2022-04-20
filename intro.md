@@ -20,9 +20,9 @@ Agenda
 
   1. Practical use of BPF
   	* Observability
-        	 * BPF front-end tool
-             		* BCC tools and programming
-             		* BPFtrace 
+  		* BPF front-end tool
+  		* BCC tools and programming
+  		* BPFtrace 
      	* Security
          	* ebpf verifier
      	* Networking 
