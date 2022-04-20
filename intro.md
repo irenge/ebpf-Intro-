@@ -1,6 +1,8 @@
 # Berkeley Packet Filter (BPF) 
 ## Introduction
-   BPF/eBPF is an in kernel execution engine that processes virtual instruction set.
+   BPF is a subsystem in the Linux Kernel recently ported to Windows.
+   
+   BPF/eBPF works as an in kernel execution engine that processes virtual instruction set.
    
    The technology has grown from a tool that improved performance of packet capture tools [McCanne 92] 
    to a general purpose execution engine that can be used for a variety of things including creation of 
@@ -13,15 +15,29 @@
 
    BPF is composed of an instruction set, storage objects and helper functions. 
    The main use of BPF are networking, observability and security.
-   In this introduction, we will focus on the main frony-end BPF tools used in observability.
+
+Agenda
+     1. Observability
+         - BPF front-end 
+     2. Security
+         - Verifier
+     3. Networking 
+         - XDP  
+     4. Workplan
+         1. Using XDP to create a novel BCC tool 
+         2. Improve on the eBPF verifier
+
+   In this introduction, we will focus on the main front-end BPF tools used in observability then later introduced xdp which use bpf for networking and security. 
 
 1. BPF front-end
 
-    When kernel engineers speak about observability, they refer to tracing, an event-based recording. Tools such as strace and tcpdump can be a good example. BPF provides tools that give extra informations:
+    Tracing is event-based recording. Tools such as strace and tcpdump are good examples. BPF is an event driven programming that provides observability or tracing.
+    BPF provides tools that give extra informations that are not provided by common system administrator tools. 
 	- BCC tools <br/>
 	BPF compiler collection (BCC) is the higher level tracing framework developed for BPF.
-	The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++)  for user-level interface.
-BCC repository has more than 70 BPF tools for performance and analysis. We will go through 12 BCC tools.
+	
+	The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++) for user-level interface.
+	BCC repository has more than 70 BPF tools for performance and analysis. We will go through 12 BCC tools.
 		- execsnoop<br/>
 		This tool works by tracing the execve(2) system call and reveal processes that may be shortlived that they are invisible to other tools like ps. 
 		<pre># execsnoop
@@ -129,7 +145,12 @@ BCC repository has more than 70 BPF tools for performance and analysis. We will 
 		7.152058    5513   Chrome_IOThread  M .com.google.Chrome.1APQeW
 
 
+- bcc programming 
+- bpftrace
 
-bpftrace
+2. XDP
 
+3. Work Plan
+   - Create a bcc tool
+   - eBPF verifier
   Front end that provides a special purpose high level lanbguage for developing BPF tools
