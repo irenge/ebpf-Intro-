@@ -19,13 +19,13 @@
 Agenda
 
   1. Practical use of BPF
-  	- Observability
+	  2. Observability
   		* BPF front-end tool
   		* BCC tools and programming
   		* BPFtrace 
-     	- Security
+  	  2. Security
          	* ebpf verifier
-     	- Networking 
+          2. Networking 
          	* XDP  
   2. Workplan
         1. Using XDP to create a novel BCC tool for safety  
