@@ -28,8 +28,8 @@ Agenda
       * Networking
           * XDP  
   2. Workplan
-        1. Using XDP to create a novel BCC tool for safety  
-        2. Improve on the current eBPF verifier
+      1. Using XDP to create a novel BCC tool for safety  
+      2. Improve on the current eBPF verifier
 
    In this introduction, we will focus on the main front-end BPF tools used in observability then later introduced xdp which use bpf for networking and security. 
 
