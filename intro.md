@@ -19,7 +19,7 @@
 Agenda
 
   1. Practical use of BPF
-  	* Observability
+  	2. Observability
   		* BPF front-end tool
   		* BCC tools and programming
   		* BPFtrace 
