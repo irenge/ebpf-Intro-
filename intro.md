@@ -17,15 +17,19 @@
    The main use of BPF are networking, observability and security.
 
 Agenda
-     1. Observability
-         - BPF front-end 
-     2. Security
-         - Verifier
-     3. Networking 
-         - XDP  
-     4. Workplan
-         1. Using XDP to create a novel BCC tool 
-         2. Improve on the eBPF verifier
+
+  1. Practical use of BPF
+  	1. Observability
+        	 - BPF front-end tool
+             		- BCC tools and programming
+             		- BPFtrace 
+     	2. Security
+         	- ebpf verifier
+     	3. Networking 
+         	- XDP  
+  2. Workplan
+        1. Using XDP to create a novel BCC tool for safety  
+        2. Improve on the current eBPF verifier
 
    In this introduction, we will focus on the main front-end BPF tools used in observability then later introduced xdp which use bpf for networking and security. 
 
