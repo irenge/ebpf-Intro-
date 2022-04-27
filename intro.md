@@ -150,11 +150,16 @@ Agenda
 
 
 - bcc programming 
+
 - bpftrace
 
 2. XDP
 
 3. Work Plan
-   - Create a bcc tool
-   - eBPF verifier
+   - BPF current issue proposed by Daniel Borkmann
+   	- Move samples/bpf to BPF selftests folder to improve on test_prog CI - currently ongoing, rewriting the Makefile
+   - Create a bcc tool using XDP 
+   
+   - eBPF verifier : work with Wenhui 
+   
   Front end that provides a special purpose high level lanbguage for developing BPF tools
