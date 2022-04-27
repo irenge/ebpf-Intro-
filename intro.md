@@ -166,6 +166,6 @@ Agenda
    
    - eBPF verifier : work with Wenhui 
                 * Duration: One Month
-   - Any other issues assigned by the mentor
+   - Any other issues assigned by mentor
    
   Front end that provides a special purpose high level lanbguage for developing BPF tools
