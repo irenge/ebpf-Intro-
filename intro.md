@@ -28,8 +28,10 @@ Agenda
       * Networking
           * XDP  
   2. Workplan
-      1. Using XDP to create a novel BCC tool for safety  
-      2. Improve on the current eBPF verifier
+      1. BPF current issue proposed by Daniel Borkmann
+   		* Move samples/bpf to BPF selftests folder to improve on test_prog BPF CI - currently ongoing, rewriting the Makefile
+      2. Using XDP to create a novel BCC tool for safety  
+      3. Improve on the current eBPF verifier
 
    In this introduction, we will focus on the main front-end BPF tools used in observability then later introduced xdp which use bpf for networking and security. 
 
