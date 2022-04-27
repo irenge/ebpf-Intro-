@@ -158,9 +158,14 @@ Agenda
 3. Work Plan
    - BPF current issue proposed by Daniel Borkmann
    		* Move samples/bpf to BPF selftests folder to improve on test_prog BPF CI - currently ongoing, rewriting the Makefile
+		* Require reading on Makefile writing 
+		* Duration: one week 
 		
    - Create a bcc tool for network statistics using XDP/BPF technology 
+                * Duration: two weeks
    
    - eBPF verifier : work with Wenhui 
+                * Duration: One Month
+   - Any other issues assigned by the mentor
    
   Front end that provides a special purpose high level lanbguage for developing BPF tools
