@@ -114,6 +114,7 @@ Agenda
 		The tool prints a line of output for each disk I/O with details include latency
 
 		- tcpconnect
+		
 		<pre># tcpconnect 
 		Tracing connect ... Hit Ctrl-C to end
 		PID    COMM         IP SADDR            DADDR            DPORT 
@@ -126,12 +127,15 @@ Agenda
 		4909   Chrome_Child 4  192.168.1.245    52.113.205.5     443    
 		5564   Chrome_Child 4  192.168.1.245    34.131.36.146    443    
 		4909   Chrome_Child 4  192.168.1.245    13.89.179.10     443    
-		5564   Chrome_Child 4  192.168.1.245    142.250.179.229  443</pre>
+		5564   Chrome_Child 4  192.168.1.245    142.250.179.229  443
+		</pre>
+		
 		- tcpretrans
+		
 		<pre># tcpretrans
-	    	Tracing retransmits ... Hit Ctrl-C to end
-	    	TIME     PID    IP LADDR:LPORT          T> RADDR:RPORT          STATE
-	    	22:36:32 0      4  192.168.1.245:42072  R> 13.33.52.19:443      ESTABLISHED
+		Tracing retransmits ... Hit Ctrl-C to end
+		TIME     PID    IP LADDR:LPORT          T> RADDR:RPORT          STATE
+		22:36:32 0      4  192.168.1.245:42072  R> 13.33.52.19:443      ESTABLISHED
 	    	22:39:50 0      4  192.168.1.245:59090  R> 142.250.179.229:443  ESTABLISHED
 	    	22:39:50 0      4  192.168.1.245:59070  R> 142.250.179.229:443  ESTABLISHED
 	    	22:39:51 1372   4  192.168.1.245:59090  R> 142.250.179.229:443  ESTABLISHED
@@ -154,6 +158,32 @@ Agenda
 		6.629692    5564   ThreadPoolForeg  M 27976406cc9ab9e4_0
 		6.745617    5513   Chrome_IOThread  M .com.google.Chrome.R2RH2Y
 		7.152058    5513   Chrome_IOThread  M .com.google.Chrome.1APQeW
+		</pre>
+		
+		<pre># cachestat
+		 HITS   MISSES  DIRTIES HITRATIO   BUFFERS_MB  CACHED_MB
+		 16        1        1   94.12%         1312       3249
+		 0        0        0    0.00%         1312       3249
+		 34        3       15   91.89%         1312       3249
+		 0        0        0    0.00%         1312       3249
+		 14        3        5   82.35%         1312       3249
+		 407        0       80  100.00%         1312       3249
+		 0        0        0    0.00%         1312       3249
+		 0        0        0    0.00%         1312       3249
+		 0        0       19    0.00%         1312       3249
+		 0        0        0    0.00%         1312       3249
+		 9743        0      136  100.00%         1312       3249
+		 0        0        3    0.00%         1312       3249
+		 0        0        0    0.00%         1312       3249
+		 5        0        0  100.00%         1312       3249
+		 0        0        0    0.00%         1312       3249
+		 0        0        0    0.00%         1312       3249
+		 0        0        8    0.00%         1312       3249
+		 478        0        0  100.00%         1312       3249
+		 28        0        0  100.00%         1312       3249
+		 0        0        0    0.00%         1312       3249</pre>
+
+		
 
 
 - bcc programming 
