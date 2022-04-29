@@ -43,14 +43,14 @@ Agenda
 	BPF compiler collection (BCC) is the higher level tracing framework developed for BPF.
 	The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++) for user-level interface.
 	BCC repository has more than 70 BPF tools for performance and analysis. We will go through 12 BCC tools.
-		- execsnoop<br/>
-		<pre># execsnoop
-		PCOMM            PID    PPID   RET ARGS
-		dhcpcd-run-hook  29407  2642     0 /lib/dhcpcd/dhcpcd-run-hooks
-		sed              29410  29409    0 /bin/sed -n s/^domain //p wlan0.dhcp
-		cmp              29417  29407    0 /usr/bin/cmp -s /etc/resolv.conf ../resolv.conf.wlan0.ra
-		qemu-system-x86  29422  27546    0 /usr/bin/qemu-system-x86_64 -m 4096 -smp 8 ... -snapshot 
-		</pre>
+	- execsnoop<br/>
+	<pre># execsnoop
+	PCOMM            PID    PPID   RET ARGS
+	dhcpcd-run-hook  29407  2642     0 /lib/dhcpcd/dhcpcd-run-hooks
+	sed              29410  29409    0 /bin/sed -n s/^domain //p wlan0.dhcp
+	cmp              29417  29407    0 /usr/bin/cmp -s /etc/resolv.conf ../resolv.conf.wlan0.ra
+	qemu-system-x86  29422  27546    0 /usr/bin/qemu-system-x86_64 -m 4096 -smp 8 ... -snapshot 
+	</pre>
         	This tool works by tracing the execve(2) system call and reveal processes that may be shortlived that they are invisible to other tools like ps. 
 		- opensnoop<br/>
 		<pre># opensnoop -T
