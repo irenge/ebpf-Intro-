@@ -44,8 +44,8 @@ Agenda
 	
 	The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++) for user-level interface.
 	BCC repository has more than 70 BPF tools for performance and analysis. We will go through 12 BCC tools.
-		- execsnoop<br/>
-		This tool works by tracing the execve(2) system call and reveal processes that may be shortlived that they are invisible to other tools like ps. 
+	
+	- execsnoop<br/>
 		<pre># execsnoop
 		PCOMM            PID    PPID   RET ARGS
 		dhcpcd-run-hook  29407  2642     0 /lib/dhcpcd/dhcpcd-run-hooks
@@ -53,6 +53,7 @@ Agenda
 		cmp              29417  29407    0 /usr/bin/cmp -s /etc/resolv.conf ../resolv.conf.wlan0.ra
 		qemu-system-x86  29422  27546    0 /usr/bin/qemu-system-x86_64 -m 4096 -smp 8 ... -snapshot 
 		</pre>
+        This tool works by tracing the execve(2) system call and reveal processes that may be shortlived that they are invisible to other tools like ps. 
 		- opensnoop<br/>
 		The tool prints one line of the output per each open() system call with details. 
 		opensnoop can be used to troubleshoot failing software which may be attempting to open files from a wrong path as well as determine where the config and log files are kept.
