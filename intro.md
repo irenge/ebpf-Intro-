@@ -94,95 +94,90 @@ Agenda
                512 -> 1023       : 315      |****************************************|
                1024 -> 2047       : 21       |**                                      |
                2048 -> 4095       : 1        |                                        |
-		</pre>
-                This tool traces disk I/O latency. By latency we mean the time taken from device issue to completion.
-		The tool also shows the resut as an histogram. This tool gives better performance information than iostat(1) 
-		- biosnoop
-		<pre># biosnoop
-		TIME(s)     COMM           PID    DISK    T SECTOR     BYTES  LAT(ms)
-		0.000000    kworker/23:1   9126           R 18446744073709551615 0         0.61
-		1.774198    ThreadPoolFore 5270   nvme0n1 W 520198144  225280    0.48
-		1.774381    jbd2/nvme0n1p3 686    nvme0n1 W 490161296  65536     0.03
-		1.774609    ?              0              R 0          0         0.21
-		1.774809    jbd2/nvme0n1p3 686    nvme0n1 W 490161424  4096      0.19
-		2.069546    kworker/23:1   9126           R 18446744073709551615 0         0.17
-		2.159061    ?              0              R 0          0         0.24
-		2.159129    ThreadPoolFore 5270   nvme0n1 W 777702184  4096      0.01
-		2.159341    ?              0              R 0          0         0.20
-		2.159387    ThreadPoolFore 5270   nvme0n1 W 15221256   8192      0.01
-		2.159598    ?              0              R 0          0         0.20
-		2.159713    jbd2/nvme0n1p3 686    nvme0n1 W 490161432  53248     0.02</pre>
-		The tool prints a line of output for each disk I/O with details include latency
-		- tcpconnect
-		
-		<pre># tcpconnect 
-		Tracing connect ... Hit Ctrl-C to end
-		PID    COMM         IP SADDR            DADDR            DPORT 
-		4909   Chrome_Child 4  192.168.1.245    40.74.98.194     443    
-		4909   Chrome_Child 4  192.168.1.245    40.74.98.194     443    
-		5564   Chrome_Child 4  192.168.1.245    172.217.16.238   443    
-		4909   Chrome_Child 4  192.168.1.245    52.97.208.18     443    
-		5564   Chrome_Child 4  192.168.1.245    142.250.200.14   443    
-		5564   Chrome_Child 4  192.168.1.245    35.206.151.171   443    
-		4909   Chrome_Child 4  192.168.1.245    52.113.205.5     443    
-		5564   Chrome_Child 4  192.168.1.245    34.131.36.146    443    
-		4909   Chrome_Child 4  192.168.1.245    13.89.179.10     443    
-		5564   Chrome_Child 4  192.168.1.245    142.250.179.229  443
-		</pre>
-		
-		- tcpretrans
-		
-		<pre># tcpretrans
-		Tracing retransmits ... Hit Ctrl-C to end
-		TIME     PID    IP LADDR:LPORT          T> RADDR:RPORT          STATE
-		22:36:32 0      4  192.168.1.245:42072  R> 13.33.52.19:443      ESTABLISHED
-	    	22:39:50 0      4  192.168.1.245:59090  R> 142.250.179.229:443  ESTABLISHED
-	    	22:39:50 0      4  192.168.1.245:59070  R> 142.250.179.229:443  ESTABLISHED
-	    	22:39:51 1372   4  192.168.1.245:59090  R> 142.250.179.229:443  ESTABLISHED
-	    	22:39:51 1372   4  192.168.1.245:59092  R> 142.250.179.229:443  ESTABLISHED
-	    	22:39:51 1372   4  192.168.1.245:59090  R> 142.250.179.229:443  ESTABLISHED
-	    	22:39:51 1375   4  192.168.1.245:59092  R> 142.250.179.229:443  ESTABLISHED
-		22:47:50 0      4  192.168.1.245:52052  R> 34.237.73.95:443     ESTABLISHED
-	    	22:47:50 0      4  192.168.1.245:59070  R> 142.250.179.229:443  ESTABLISHED</pre>
-
-		- dcsnoop
-		<pre># dcsnoop
-	        TIME(s)     PID    COMM             T FILE
-		4.251881    5564   ThreadPoolForeg  M .com.google.Chrome.SHfObm
-		5.123501    5513   Chrome_IOThread  M .com.google.Chrome.u9ddWB
-		5.129829    5513   Chrome_IOThread  M .com.google.Chrome.xF5o8V
-		5.136616    5513   Chrome_IOThread  M .com.google.Chrome.7pFl5x
-		5.337782    4909   ThreadPoolForeg  M temp-index
-		6.137998    5513   Chrome_IOThread  M .com.google.Chrome.6D4b3D
-		6.628683    5513   Chrome_IOThread  M .com.google.Chrome.lBIYIm
-		6.629692    5564   ThreadPoolForeg  M 27976406cc9ab9e4_0
-		6.745617    5513   Chrome_IOThread  M .com.google.Chrome.R2RH2Y
-		7.152058    5513   Chrome_IOThread  M .com.google.Chrome.1APQeW
-		</pre>
+	      </pre>
+              This tool traces disk I/O latency and can also show result as an histogram. By latency we mean the time taken from device issue to completion.
+	      This tool gives better performance information than iostat(1) 
+	   - biosnoop
+	      <pre># biosnoop
+	      TIME(s)     COMM           PID    DISK    T SECTOR     BYTES  LAT(ms)
+	      0.000000    kworker/23:1   9126           R 18446744073709551615 0         0.61
+	      1.774198    ThreadPoolFore 5270   nvme0n1 W 520198144  225280    0.48
+	      1.774381    jbd2/nvme0n1p3 686    nvme0n1 W 490161296  65536     0.03
+	      1.774609    ?              0              R 0          0         0.21
+	      1.774809    jbd2/nvme0n1p3 686    nvme0n1 W 490161424  4096      0.19
+	      2.069546    kworker/23:1   9126           R 18446744073709551615 0         0.17
+	      2.159061    ?              0              R 0          0         0.24
+	      2.159129    ThreadPoolFore 5270   nvme0n1 W 777702184  4096      0.01
+	      2.159341    ?              0              R 0          0         0.20
+	      2.159387    ThreadPoolFore 5270   nvme0n1 W 15221256   8192      0.01
+	      2.159598    ?              0              R 0          0         0.20
+	      2.159713    jbd2/nvme0n1p3 686    nvme0n1 W 490161432  53248     0.02</pre>
+	      The tool prints a line of output for each disk I/O with details include latency
+	   - tcpconnect
+	      <pre># tcpconnect
+	      Tracing connect ... Hit Ctrl-C to end
+	      PID    COMM         IP SADDR            DADDR            DPORT
+	      4909   Chrome_Child 4  192.168.1.245    40.74.98.194     443
+	      4909   Chrome_Child 4  192.168.1.245    40.74.98.194     443
+	      5564   Chrome_Child 4  192.168.1.245    172.217.16.238   443
+	      4909   Chrome_Child 4  192.168.1.245    52.97.208.18     443
+	      5564   Chrome_Child 4  192.168.1.245    142.250.200.14   443
+	      5564   Chrome_Child 4  192.168.1.245    35.206.151.171   443
+	      4909   Chrome_Child 4  192.168.1.245    52.113.205.5     443
+	      5564   Chrome_Child 4  192.168.1.245    34.131.36.146    443
+	      4909   Chrome_Child 4  192.168.1.245    13.89.179.10     443
+	      5564   Chrome_Child 4  192.168.1.245    142.250.179.229  443
+	      </pre>
+	   - tcpretrans
+	      <pre># tcpretrans
+	      Tracing retransmits ... Hit Ctrl-C to end
+	      TIME     PID    IP LADDR:LPORT          T> RADDR:RPORT          STATE
+	      22:36:32 0      4  192.168.1.245:42072  R> 13.33.52.19:443      ESTABLISHED
+	      22:39:50 0      4  192.168.1.245:59090  R> 142.250.179.229:443  ESTABLISHED
+	      22:39:50 0      4  192.168.1.245:59070  R> 142.250.179.229:443  ESTABLISHED
+	      22:39:51 1372   4  192.168.1.245:59090  R> 142.250.179.229:443  ESTABLISHED
+	      22:39:51 1372   4  192.168.1.245:59092  R> 142.250.179.229:443  ESTABLISHED
+	      22:39:51 1372   4  192.168.1.245:59090  R> 142.250.179.229:443  ESTABLISHED
+	      22:39:51 1375   4  192.168.1.245:59092  R> 142.250.179.229:443  ESTABLISHED
+	      22:47:50 0      4  192.168.1.245:52052  R> 34.237.73.95:443     ESTABLISHED
+	      22:47:50 0      4  192.168.1.245:59070  R> 142.250.179.229:443  ESTABLISHED</pre>
+	   - dcsnoop
+	      <pre># dcsnoop
+	      TIME(s)     PID    COMM             T FILE
+	      4.251881    5564   ThreadPoolForeg  M .com.google.Chrome.SHfObm
+	      5.123501    5513   Chrome_IOThread  M .com.google.Chrome.u9ddWB
+	      5.129829    5513   Chrome_IOThread  M .com.google.Chrome.xF5o8V
+	      5.136616    5513   Chrome_IOThread  M .com.google.Chrome.7pFl5x
+	      5.337782    4909   ThreadPoolForeg  M temp-index
+	      6.137998    5513   Chrome_IOThread  M .com.google.Chrome.6D4b3D
+	      6.628683    5513   Chrome_IOThread  M .com.google.Chrome.lBIYIm
+	      6.629692    5564   ThreadPoolForeg  M 27976406cc9ab9e4_0
+	      6.745617    5513   Chrome_IOThread  M .com.google.Chrome.R2RH2Y
+	      7.152058    5513   Chrome_IOThread  M .com.google.Chrome.1APQeW
+	      </pre>
 	- cahestat
-
-		<pre># cachestat
-		 HITS   MISSES  DIRTIES HITRATIO   BUFFERS_MB  CACHED_MB
-		 16        1        1   94.12%         1312       3249
-		 0        0        0    0.00%         1312       3249
-		 34        3       15   91.89%         1312       3249
-		 0        0        0    0.00%         1312       3249
-		 14        3        5   82.35%         1312       3249
-		 407        0       80  100.00%         1312       3249
-		 0        0        0    0.00%         1312       3249
-		 0        0        0    0.00%         1312       3249
-		 0        0       19    0.00%         1312       3249
-		 0        0        0    0.00%         1312       3249
-		 9743        0      136  100.00%         1312       3249
-		 0        0        3    0.00%         1312       3249
-		 0        0        0    0.00%         1312       3249
-		 5        0        0  100.00%         1312       3249
-		 0        0        0    0.00%         1312       3249
-		 0        0        0    0.00%         1312       3249
-		 0        0        8    0.00%         1312       3249
-		 478        0        0  100.00%         1312       3249
-		 28        0        0  100.00%         1312       3249
-		 0        0        0    0.00%         1312       3249</pre>
+	      <pre># cachestat
+	      HITS   MISSES  DIRTIES HITRATIO   BUFFERS_MB  CACHED_MB
+	      16        1        1   94.12%         1312       3249
+	      0        0        0    0.00%         1312       3249
+	      34        3       15   91.89%         1312       3249
+	      0        0        0    0.00%         1312       3249
+	      14        3        5   82.35%         1312       3249
+	      407        0       80  100.00%         1312       3249
+	      0        0        0    0.00%         1312       3249
+	      0        0        0    0.00%         1312       3249
+	      0        0       19    0.00%         1312       3249
+	      0        0        0    0.00%         1312       3249
+	      9743        0      136  100.00%         1312       3249
+	      0        0        3    0.00%         1312       3249
+	      0        0        0    0.00%         1312       3249
+	      5        0        0  100.00%         1312       3249
+	      0        0        0    0.00%         1312       3249
+	      0        0        0    0.00%         1312       3249
+	      0        0        8    0.00%         1312       3249
+	      478        0        0  100.00%         1312       3249
+	      28        0        0  100.00%         1312       3249
+	      0        0        0    0.00%         1312       3249</pre>
 
 		
 
