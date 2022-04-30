@@ -80,22 +80,21 @@ Agenda
 	   - biolatency 
 	      <pre># biolatency 
 	      Tracing block device I/O... Hit Ctrl-C to end.
-              ^C
-               usecs               : count     distribution
-               0 -> 1          : 0        |                                        |
-               2 -> 3          : 0        |                                        |
-               4 -> 7          : 3        |                                        |
-               8 -> 15         : 115      |**************                          |
-               16 -> 31         : 49       |******                                  |
-               32 -> 63         : 36       |****                                    |
-               64 -> 127        : 1        |                                        |
-               128 -> 255        : 286      |************************************    |
-               256 -> 511        : 160      |********************                    |
-               512 -> 1023       : 315      |****************************************|
-               1024 -> 2047       : 21       |**                                      |
-               2048 -> 4095       : 1        |                                        |
+	      usecs               : count     distribution
+	      0 -> 1          : 0        |                                        |
+	      2 -> 3          : 0        |                                        |
+	      4 -> 7          : 3        |                                        |
+	      8 -> 15         : 115      |**************                          |
+	      16 -> 31         : 49       |******                                  |
+	      32 -> 63         : 36       |****                                    |
+	      64 -> 127        : 1        |                                        |
+	      128 -> 255        : 286      |************************************    |
+              256 -> 511        : 160      |********************                    |
+              512 -> 1023       : 315      |****************************************|
+              1024 -> 2047       : 21       |**                                      |
+	      2048 -> 4095       : 1        |                                        |
 	      </pre>
-              This tool traces disk I/O latency and can also show result as an histogram. By latency we mean the time taken from device issue to completion.
+              biolatency traces disk I/O latency and  shows result as an histogram. Latency here refers to the time taken from device issue to completion.
 	      This tool gives better performance information than iostat(1) 
 	   - biosnoop
 	      <pre># biosnoop
