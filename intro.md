@@ -155,7 +155,7 @@ Agenda
 	      6.745617    5513   Chrome_IOThread  M .com.google.Chrome.R2RH2Y
 	      7.152058    5513   Chrome_IOThread  M .com.google.Chrome.1APQeW
 	      </pre>
-	- cahestat
+	   - cachestat
 	      <pre># cachestat
 	      HITS   MISSES  DIRTIES HITRATIO   BUFFERS_MB  CACHED_MB
 	      16        1        1   94.12%         1312       3249
