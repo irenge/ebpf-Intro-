@@ -65,7 +65,7 @@ Agenda
 	      0.422395000   11858  Chrome_IOThread   389   0 /dev/shm/.com.google.Chrome.ct746O
 	      </pre>
 	     The tool prints one line of the output per each open() system call and its variants. 
-		opensnoop can be used to troubleshoot failing software which may be attempting to open files from a wrong path as well as
+	opensnoop can be used to troubleshoot failing software which may be attempting to open files from a wrong path as well as
 		determine where the config and log files are kept.
 	   - ext4slower
 	      <pre># ext4slower
@@ -75,9 +75,9 @@ Agenda
               22:16:12 baloo_file_ext 4458   S 0       0         134.65 index
               22:16:16 baloo_file_ext 4458   S 0       0         151.65 index
               22:16:20 baloo_file_ext 4458   S 0       0         172.81 index
-              22:16:25 baloo_file_ext 4458   W 60678144 5098540    11.48 index
+	      22:16:25 baloo_file_ext 4458   W 60678144 5098540    11.48 index
 	      </pre>
-	     This tool trace common operation of ext4 file system(reads, write, open, syncs) and prints those that exceed a time threshold
+	      This tool trace common operation of ext4 file system(reads, write, open, syncs) and prints those that exceed a time threshold
 	   - biolatency 
 	      <pre># biolatency 
 	      Tracing block device I/O... Hit Ctrl-C to end.
@@ -95,8 +95,9 @@ Agenda
               1024 -> 2047       : 21       |**                                      |
 	      2048 -> 4095       : 1        |                                        |
 	      </pre>
-              biolatency traces disk I/O latency and  shows result as an histogram. Latency here refers to the time taken from device issue to completion.
-	      This tool gives better performance information than iostat(1) 
+	     biolatency traces disk I/O latency and  shows result as an histogram.
+	     Latency here refers to the time taken from device issue to completion.
+	     The tool gives better performance information than iostat(1) 
 	   - biosnoop
 	      <pre># biosnoop
 	      TIME(s)     COMM           PID    DISK    T SECTOR     BYTES  LAT(ms)
