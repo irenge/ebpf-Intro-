@@ -62,7 +62,8 @@ Agenda
 	      0.001391000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_32_ia32.h
 	      0.001685000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_64_x32.h
 	      0.079771000   3486   qemu-system-x86    23   0 /etc/resolv.conf
-	      0.422395000   11858  Chrome_IOThread   389   0 /dev/shm/.com.google.Chrome.ct746O </pre>
+	      0.422395000   11858  Chrome_IOThread   389   0 /dev/shm/.com.google.Chrome.ct746O
+	      </pre>
 	     The tool prints one line of the output per each open() system call and its variants. 
 		opensnoop can be used to troubleshoot failing software which may be attempting to open files from a wrong path as well as
 		determine where the config and log files are kept.
