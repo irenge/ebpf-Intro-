@@ -1,44 +1,46 @@
-# Berkeley Packet Filter (BPF) 
-## Introduction
-   BPF is a subsystem in the Linux Kernel recently ported to Windows.
+## Berkeley Packet Filter (BPF) 
+####Agenda
+<ol> <li>BPF
+   <ol> <li> Introduction</li>
+        <li> Practical use of BPF
+           <ol> <li>Observability
+                   <ul><li> BPF front-end tool</li>
+                      <li> BCC tools and programming</li>
+                       <li> BPFtrace</li>
+                   </ul>
+                </li>
+                <li>Security
+                <ul> <li>BPF verifier</li></ul>
+                </li>
+                <li> Networking 
+                <ul> <li>XDP</li></ul>
+                </li>
+            </ol> </li>
+            </ol>
+      <li> Workplan
+      <ol> <li> BPF current issue proposed by Daniel Borkmann</li>
+           <li>  Using XDP to create a novel BCC tool for safety  </li>
+           <li> Improve on the current eBPF verifier</li>
+           </ol></li>
+           </li></ol>
+***
+### Introduction
 
-   BPF/eBPF works as an in kernel execution engine that processes virtual instruction set.
+The Berkeley Packet Filter(BPF/eBPF) is one of the subsystems in the core Linux Kernel. It works as an in kernel execution engine that processes virtual instruction set.
+  BPF started as a simple language for writing packet-filtering code for utilities like tcpdump: [McCanne 92](https://www.tcpdump.org/papers/bpf-usenix93.pdf) to a general purpose execution engine that can be used for a variety of things including creation of advanced performance analysis tools.
 
-   The technology has grown from a tool that improved performance of packet capture tools [McCanne 92] 
-   to a general purpose execution engine that can be used for a variety of things including creation of 
-   advanced performance analysis tools.
-
-   BPF provides a way to run mini programs on wide variety of kernel and application events.
-   An eBPF program is attached to a designated code path in the Kernel.
-   When a code path is traversed, any attached eBPF programs are executed.
+BPF provides a way to run mini programs on wide variety of kernel and application events.
+An eBPF program is attached to a designated code path in the Kernel. When a code path is traversed, any attached eBPF programs are executed.
 
 
-   BPF is composed of an instruction set, storage objects and helper functions. 
-   The main use of BPF are networking, observability and security.
+BPF is composed of an instruction set, storage objects and helper functions. 
+The main use of BPF are networking, observability and security.
 
-Agenda
-
-  1. Practical use of BPF
-      * Observability
-          * BPF front-end tool
-          * BCC tools and programming
-          * BPFtrace
-      * Security
-          * ebpf verifier
-      * Networking
-          * XDP
-  2. Workplan
-      1. BPF current issue proposed by Daniel Borkmann
-   		* Move samples/bpf to BPF selftests folder to improve on test_prog BPF CI - currently ongoing, rewriting the Makefile
-      2. Using XDP to create a novel BCC tool for safety  
-      3. Improve on the current eBPF verifier
-
-   In this introduction, we will focus on the main front-end BPF tools used in observability then later introduced xdp which use bpf for networking and security. 
-
-1. BPF front-end
-
-    Tracing is event-based recording. Tools such as strace and tcpdump are good examples. BPF is an event driven programming that provides observability or tracing.
-    BPF provides tools that give extra informations that are not provided by common system administrator tools. 
+In this introduction, we will focus on the main front-end BPF tools used in observability then later introduced XDP which use bpf for networking and security. 
+### Practical Use 
+1. Observability
+    BPF is an event driven programming that provides observability or tracing.
+    System administrator tools that give extra informations that are not provided by common system administrator tools. 
 	- BCC tools <br/>
 	BPF compiler collection (BCC) is the higher level tracing framework developed for BPF.
 	The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++) for user-level interface.
@@ -129,6 +131,7 @@ Agenda
 	      4909   Chrome_Child 4  192.168.1.245    13.89.179.10     443
 	      5564   Chrome_Child 4  192.168.1.245    142.250.179.229  443
 	      </pre>
+	      tcpconnect display a one line of output  of every active TCP connection(connect()) 
 	   - tcpretrans
 	      <pre># tcpretrans
 	      Tracing retransmits ... Hit Ctrl-C to end
@@ -145,18 +148,22 @@ Agenda
 	   - dcsnoop
 	      <pre># dcsnoop
 	      TIME(s)     PID    COMM             T FILE
-	      4.251881    5564   ThreadPoolForeg  M .com.google.Chrome.SHfObm
-	      5.123501    5513   Chrome_IOThread  M .com.google.Chrome.u9ddWB
-	      5.129829    5513   Chrome_IOThread  M .com.google.Chrome.xF5o8V
-	      5.136616    5513   Chrome_IOThread  M .com.google.Chrome.7pFl5x
-	      5.337782    4909   ThreadPoolForeg  M temp-index
-	      6.137998    5513   Chrome_IOThread  M .com.google.Chrome.6D4b3D
-	      6.628683    5513   Chrome_IOThread  M .com.google.Chrome.lBIYIm
-	      6.629692    5564   ThreadPoolForeg  M 27976406cc9ab9e4_0
-	      6.745617    5513   Chrome_IOThread  M .com.google.Chrome.R2RH2Y
-	      7.152058    5513   Chrome_IOThread  M .com.google.Chrome.1APQeW
-	      </pre>
-	   - cachestat
+	      8.893741    29295  sadc             M dev
+	      8.893782    29295  sadc             M dev
+	      8.893813    29295  sadc             M dev
+	      8.894006    29295  sadc             M nfs
+	      8.894028    29295  sadc             M nfsd
+	      8.894041    29295  sadc             M sockstat
+	      8.894053    29295  sadc             M softnet_stat
+	      13.240580   3743   ThreadPoolForeg  M todelete_e3e954c5761fd557_0_1
+	      13.240988   3557   Chrome_IOThread  M .org.chromium.Chromium.PPeyk5
+	      13.243443   3743   ThreadPoolForeg  M e3e954c5761fd557_0
+	      21.747442   29303  dhcpcd-run-hook  M resolv.conf.wlan0.ra
+	      21.747854   29313  cmp              M maps
+	      21.748626   29315  rm               M resolv.conf.wlan0.ra
+	      21.750007   2470   dhcpcd           M if_inet6 </pre>
+	      The tool traces every dcache lookup, and shows the process performing the lookup and the filename requested.<br/>
+	     - cachestat
 	      <pre># cachestat
 	      HITS   MISSES  DIRTIES HITRATIO   BUFFERS_MB  CACHED_MB
 	      16        1        1   94.12%         1312       3249
@@ -178,7 +185,10 @@ Agenda
 	      0        0        8    0.00%         1312       3249
 	      478        0        0  100.00%         1312       3249
 	      28        0        0  100.00%         1312       3249
-	      0        0        0    0.00%         1312       3249</pre>
+	      0        0        0    0.00%         1312       3249
+	      </pre>
+	      cachestat prints a one line summary every second (or every custom interval)
+	     showing statistics from the file system cache.
 
 		
 
@@ -189,7 +199,7 @@ Agenda
 
 2. XDP
 
-3. Work Plan
+### Workplan
    - BPF current issue proposed by Daniel Borkmann
    		* Move samples/bpf to BPF selftests folder to improve on test_prog BPF CI - currently ongoing, rewriting the Makefile
 		* Require reading on Makefile writing 
