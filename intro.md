@@ -26,18 +26,20 @@
 ***
 ### Introduction
 
-The Berkeley Packet Filter(BPF/eBPF) is one of the subsystems in the core Linux Kernel. It works as an in kernel execution engine that processes virtual instruction set.
-  BPF started as a simple language for writing packet-filtering code for utilities like tcpdump: [McCanne 92](https://www.tcpdump.org/papers/bpf-usenix93.pdf) to a general purpose execution engine that can be used for a variety of things including creation of advanced performance analysis tools.
+The Berkeley Packet Filter(BPF/eBPF) is one of the subsystems in the core Linux Kernel. It works as an in kernel execution engine that processes virtual instruction set. 
+BPF is actually composed of an instruction set, storage objects and helper functions.
+
+BPF started as a simple language for writing packet-filtering code for utilities like tcpdump: [McCanne 92](https://www.tcpdump.org/papers/bpf-usenix93.pdf) to a general purpose execution engine that can be used for a variety of things including creation of advanced performance analysis tools.
 
 BPF provides a way to run mini programs on wide variety of kernel and application events.
 An eBPF program is attached to a designated code path in the Kernel. When a code path is traversed, any attached eBPF programs are executed.
 
-
-BPF is composed of an instruction set, storage objects and helper functions. 
 The main use of BPF are networking, observability and security.
 
-In this introduction, we will focus on the main front-end BPF tools used in observability then later introduced XDP which use bpf for networking and security. 
+In this introduction, we will focus on the main use of the BPF subsystem.
+
 ### Practical Use 
+
 1. Observability
     BPF is an event driven programming that provides observability or tracing.
     System administrator tools that give extra informations that are not provided by common system administrator tools. 
