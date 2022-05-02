@@ -34,7 +34,7 @@ BPF is actually composed of an instruction set, storage objects and helper funct
 BPF started as a simple language for writing packet-filtering code for utilities like tcpdump: [McCanne 92](https://www.tcpdump.org/papers/bpf-usenix93.pdf) to a general purpose execution engine that can be used for a variety of things including creation of advanced performance analysis tools.
 
 BPF provides a way to run mini programs on wide variety of kernel and application events.
-An eBPF program is attached to a designated code path in the Kernel. When a code path is traversed, any attached eBPF programs are executed.
+> An eBPF program is attached to a designated code path in the Kernel. When a code path is traversed, any attached eBPF programs are executed.
 
 The main use of BPF are networking, observability and security.
 
