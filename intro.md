@@ -52,15 +52,15 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 		<ol><li>bcc tools </li>
 		BCC repository has more than 70 BPF tools for performance and analysis. We will go through 12 BCC tools.
 			<ul><li>execsnoop</li>
-	      	   <pre># execsnoop
-	           PCOMM            PID    PPID   RET ARGS
-		   dhcpcd-run-hook  29407  2642     0 /lib/dhcpcd/dhcpcd-run-hooks
-		   sed              29410  29409    0 /bin/sed -n s/^domain //p wlan0.dhcp
-	      cmp              29417  29407    0 /usr/bin/cmp -s /etc/resolv.conf ../resolv.conf.wlan0.ra
-	      qemu-system-x86  29422  27546    0 /usr/bin/qemu-system-x86_64 -m 4096 -smp 8 ... -snapshot 
-	      </pre>
+	       <pre># execsnoop
+	       PCOMM            PID    PPID   RET ARGS
+         dhcpcd-run-hook  29407  2642     0 /lib/dhcpcd/dhcpcd-run-hooks
+         sed              29410  29409    0 /bin/sed -n s/^domain //p wlan0.dhcp
+         cmp              29417  29407    0 /usr/bin/cmp -s /etc/resolv.conf ../resolv.conf.wlan0.ra
+         qemu-system-x86  29422  27546    0 /usr/bin/qemu-system-x86_64 -m 4096 -smp 8 ... -snapshot 
+         </pre>
 	      This tool works by tracing the execve(2) system call and reveal processes that may be shortlived that they are invisible to other tools like ps. 
-         	  <li>opensnoop</li>
+        <li>opensnoop</li>
 	      <pre># opensnoop -T
 	      TIME(s)       PID    COMM               FD ERR PATH
 	      0.000000000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_32.h
@@ -73,18 +73,18 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      0.422395000   11858  Chrome_IOThread   389   0 /dev/shm/.com.google.Chrome.ct746O
 	      </pre>
 	     The tool prints one line of the output per each open() system call and its variants. 
-	opensnoop can be used to troubleshoot failing software which may be attempting to open files from a wrong path as well as
-		determine where the config and log files are kept.
-	   <li>ext4slower</li>
-	      <pre># ext4slower
-	      Tracing ext4 operations slower than 10 ms
-	      TIME     COMM           PID    T BYTES   OFF_KB   LAT(ms) FILENAME
-              22:16:08 baloo_file_ext 4458   S 0       0         125.20 index
-              22:16:12 baloo_file_ext 4458   S 0       0         134.65 index
-              22:16:16 baloo_file_ext 4458   S 0       0         151.65 index
-              22:16:20 baloo_file_ext 4458   S 0       0         172.81 index
-	      22:16:25 baloo_file_ext 4458   W 60678144 5098540    11.48 index
-	      </pre>
+       opensnoop can be used to troubleshoot failing software which may be attempting to open files from a wrong path as well as
+       determine where the config and log files are kept.
+       <li>ext4slower</li>
+       <pre># ext4slower
+       Tracing ext4 operations slower than 10 ms
+       TIME     COMM           PID    T BYTES   OFF_KB   LAT(ms) FILENAME
+       22:16:08 baloo_file_ext 4458   S 0       0         125.20 index
+       22:16:12 baloo_file_ext 4458   S 0       0         134.65 index
+       22:16:16 baloo_file_ext 4458   S 0       0         151.65 index
+       22:16:20 baloo_file_ext 4458   S 0       0         172.81 index
+	     22:16:25 baloo_file_ext 4458   W 60678144 5098540    11.48 index
+	     </pre>
 	      This tool trace common operation of ext4 file system(reads, write, open, syncs) and prints those that exceed a time threshold
 	   <li> biolatency </li>
 	      <pre># biolatency 
