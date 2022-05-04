@@ -195,16 +195,12 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      </pre>
 	      cachestat prints a one line summary every second (or every custom interval)
 	     showing statistics from the file system cache.
-
-		</ul>
-
-
-<li> bcc programming </li></ol>
-<li>bpftrace</li></ul>
-
-<li> XDP </li>
-<li> eBPF Verifer</li>
-</ol>
+       </ul>
+       <li> bcc programming </li></ol>
+       <li>bpftrace</li></ul>
+       <li> XDP </li>
+       <li> eBPF Verifer</li>
+       </ol>
 
 
 ### Workplan
