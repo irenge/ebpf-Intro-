@@ -201,8 +201,6 @@ In this introduction, we will focus on the main use of the BPF subsystem.
        the arguments when a kernel or user-level function is called, the return value of a function, finding out  whether a function is failing nad how a function is called  or what the user or kernel level stack trace.
        The tool is suited for infrequently called events. If used for frequently occuring events, trace would produce so much output that would cost significant overhead to instrument.
        To reduce overhead , it is advised to use a filter expressiopn to print only events of interest.
-                                                                                                                           
-
        </ol>
        <li> bcc programming </li></ol>
        <li>bpftrace</li></ul>
