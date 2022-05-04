@@ -201,6 +201,15 @@ In this introduction, we will focus on the main use of the BPF subsystem.
        the arguments when a kernel or user-level function is called, the return value of a function, finding out  whether a function is failing nad how a function is called  or what the user or kernel level stack trace.
        The tool is suited for infrequently called events. If used for frequently occuring events, trace would produce so much output that would cost significant overhead to instrument.
        To reduce overhead , it is advised to use a filter expressiopn to print only events of interest.
+       <pre>
+       # trace 'do_nanosleep(struct hrtimer_sleeper *t) "task: %x", t->task'
+       PID     TID     COMM            FUNC             -
+       3437    3489    teams           do_nanosleep     task: d4588000
+       2511    2815    pool-gsd-smartc do_nanosleep     task: 6b248000
+       18685   18693   nautilus        do_nanosleep     task: 21b55200
+       112985  113009  vqueue:src      do_nanosleep     task: 328b0000
+       3437    3489    teams           do_nanosleep     task: d4588000
+       </pre>
        </ol>
        <li> bcc programming </li></ol>
        <li>bpftrace</li></ul>
