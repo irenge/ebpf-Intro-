@@ -43,15 +43,15 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 
 ### Practical Use 
 
-1. Observability
+<ol><li> Observability</li>
     BPF is an event driven programming that provides observability or tracing.
     System administrator tools that give extra informations that are not provided by common system administrator tools. 
-	- BCC <br/>
+	<ul> <li> BCC </li>
 	BPF compiler collection (BCC) is the higher level tracing framework developed for BPF.
 	The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++) for user-level interface.<br/>
-            a. bcc tools<br/>
+		<ol><li>bcc tools </li>
 		BCC repository has more than 70 BPF tools for performance and analysis. We will go through 12 BCC tools.
-		- execsnoop<br/>
+			<ul><li>execsnoop</li>
 	      	   <pre># execsnoop
 	           PCOMM            PID    PPID   RET ARGS
 		   dhcpcd-run-hook  29407  2642     0 /lib/dhcpcd/dhcpcd-run-hooks
@@ -60,7 +60,7 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      qemu-system-x86  29422  27546    0 /usr/bin/qemu-system-x86_64 -m 4096 -smp 8 ... -snapshot 
 	      </pre>
 	      This tool works by tracing the execve(2) system call and reveal processes that may be shortlived that they are invisible to other tools like ps. 
-           - opensnoop
+         	  <li>opensnoop</li>
 	      <pre># opensnoop -T
 	      TIME(s)       PID    COMM               FD ERR PATH
 	      0.000000000   11552  baloo_file_extr    20   0 /home/jules/../linux/../unistd_32.h
@@ -75,7 +75,7 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	     The tool prints one line of the output per each open() system call and its variants. 
 	opensnoop can be used to troubleshoot failing software which may be attempting to open files from a wrong path as well as
 		determine where the config and log files are kept.
-	   - ext4slower
+	   <li>ext4slower</li>
 	      <pre># ext4slower
 	      Tracing ext4 operations slower than 10 ms
 	      TIME     COMM           PID    T BYTES   OFF_KB   LAT(ms) FILENAME
@@ -86,7 +86,7 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      22:16:25 baloo_file_ext 4458   W 60678144 5098540    11.48 index
 	      </pre>
 	      This tool trace common operation of ext4 file system(reads, write, open, syncs) and prints those that exceed a time threshold
-	   - biolatency 
+	   <li> biolatency </li>
 	      <pre># biolatency 
 	      Tracing block device I/O... Hit Ctrl-C to end.
 	      usecs               : count     distribution
@@ -106,7 +106,7 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	     biolatency traces disk I/O latency and  shows result as an histogram.
 	     Latency here refers to the time taken from device issue to completion.
 	     The tool gives better performance information than iostat(1) 
-	   - biosnoop
+	   <li> biosnoop</li>
 	      <pre># biosnoop
 	      TIME(s)     COMM           PID    DISK    T SECTOR     BYTES  LAT(ms)
 	      0.000000    kworker/23:1   9126           R 18446744073709551615 0         0.61
@@ -122,7 +122,7 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      2.159598    ?              0              R 0          0         0.20
 	      2.159713    jbd2/nvme0n1p3 686    nvme0n1 W 490161432  53248     0.02</pre>
 	      The tool prints a line of output for each disk I/O with details include latency
-	   - tcpconnect
+	   <li>tcpconnect</li>
 	      <pre># tcpconnect
 	      Tracing connect ... Hit Ctrl-C to end
 	      PID    COMM         IP SADDR            DADDR            DPORT
@@ -138,7 +138,7 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      5564   Chrome_Child 4  192.168.1.245    142.250.179.229  443
 	      </pre>
 	      tcpconnect display a one line of output  of every active TCP connection(connect()) 
-	   - tcpretrans
+	   <li>tcpretrans</li>
 	      <pre># tcpretrans
 	      Tracing retransmits ... Hit Ctrl-C to end
 	      TIME     PID    IP LADDR:LPORT          T> RADDR:RPORT          STATE
@@ -151,7 +151,7 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      22:39:51 1375   4  192.168.1.245:59092  R> 142.250.179.229:443  ESTABLISHED
 	      22:47:50 0      4  192.168.1.245:52052  R> 34.237.73.95:443     ESTABLISHED
 	      22:47:50 0      4  192.168.1.245:59070  R> 142.250.179.229:443  ESTABLISHED</pre>
-	   - dcsnoop
+	   <li>dcsnoop</li>
 	      <pre># dcsnoop
 	      TIME(s)     PID    COMM             T FILE
 	      8.893741    29295  sadc             M dev
@@ -169,7 +169,7 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      21.748626   29315  rm               M resolv.conf.wlan0.ra
 	      21.750007   2470   dhcpcd           M if_inet6 </pre>
 	      The tool traces every dcache lookup, and shows the process performing the lookup and the filename requested.<br/>
-	     - cachestat
+	     <li>cachestat</li>
 	      <pre># cachestat
 	      HITS   MISSES  DIRTIES HITRATIO   BUFFERS_MB  CACHED_MB
 	      16        1        1   94.12%         1312       3249
@@ -196,14 +196,16 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      cachestat prints a one line summary every second (or every custom interval)
 	     showing statistics from the file system cache.
 
-		
+		</ul>
 
 
-- bcc programming 
+<li> bcc programming </li></ol>
+<li>bpftrace</li></ul>
 
-- bpftrace
+<li> XDP </li>
+<li> eBPF Verifer</li>
+</ol>
 
-2. XDP
 
 ### Workplan
    - BPF current issue proposed by Daniel Borkmann
