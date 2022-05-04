@@ -51,7 +51,7 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++) for user-level interface.<br/>
 		<ol><li>bcc tools </li>
 		BCC repository has more than 70 BPF tools for performance and analysis. We will go through 12 BCC tools.
-			<ul><li>execsnoop</li>
+			<ol><li>execsnoop</li>
 	       <pre># execsnoop
 	       PCOMM            PID    PPID   RET ARGS
          dhcpcd-run-hook  29407  2642     0 /lib/dhcpcd/dhcpcd-run-hooks
@@ -72,7 +72,7 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      0.079771000   3486   qemu-system-x86    23   0 /etc/resolv.conf
 	      0.422395000   11858  Chrome_IOThread   389   0 /dev/shm/.com.google.Chrome.ct746O
 	      </pre>
-	     The tool prints one line of the output per each open() system call and its variants. 
+	     This debugging tools prints a line of the output per each open() system call and its variants. 
        opensnoop can be used to troubleshoot failing software which may be attempting to open files from a wrong path as well as
        determine where the config and log files are kept.
        <li>ext4slower</li>
@@ -195,7 +195,8 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      </pre>
 	      cachestat prints a one line summary every second (or every custom interval)
 	     showing statistics from the file system cache.
-       </ul>
+       <li> trace</li>
+       </ol>
        <li> bcc programming </li></ol>
        <li>bpftrace</li></ul>
        <li> XDP </li>
