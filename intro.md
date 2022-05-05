@@ -98,9 +98,9 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      32 -> 63         : 36       |****                                    |
 	      64 -> 127        : 1        |                                        |
 	      128 -> 255        : 286      |************************************    |
-              256 -> 511        : 160      |********************                    |
-              512 -> 1023       : 315      |****************************************|
-              1024 -> 2047       : 21       |**                                      |
+        256 -> 511        : 160      |********************                    |
+        512 -> 1023       : 315      |****************************************|
+        1024 -> 2047       : 21       |**                                      |
 	      2048 -> 4095       : 1        |                                        |
 	      </pre>
 	     biolatency traces disk I/O latency and  shows result as an histogram.
@@ -197,11 +197,6 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      cachestat prints a one line summary every second (or every custom interval)
 	     showing statistics from the file system cache.
        <li> trace</li>
-       trace is a multi-tool per event tracing from many different sources: kprobes, uprobes, tracepoints and USDT probes. 
-       It is used when looking for:
-       the arguments when a kernel or user-level function is called, the return value of a function, finding out  whether a function is failing nad how a function is called  or what the user or kernel level stack trace.
-       The tool is suited for infrequently called events. If used for frequently occuring events, trace would produce so much output that would cost significant overhead to instrument.
-       To reduce overhead , it is advised to use a filter expressiopn to print only events of interest.
        <pre>
        # trace 'do_nanosleep(struct hrtimer_sleeper *t) "task: %x", t->task'
        PID     TID     COMM            FUNC             -
@@ -211,6 +206,42 @@ In this introduction, we will focus on the main use of the BPF subsystem.
        112985  113009  vqueue:src      do_nanosleep     task: 328b0000
        3437    3489    teams           do_nanosleep     task: d4588000
        </pre>
+       trace is a multi-tool per event tracing from many different sources: kprobes, uprobes, tracepoints and USDT probes.
+       It is used when looking for the arguments when a kernel or user-level function is called, the return value of a function, finding out  whether a function is failing nad how a function is called  or what the user or kernel level stack trace.
+       The tool is suited for infrequently called events. If used for frequently occuring events, trace would produce so much output that would cost significant overhead to instrument.
+       To reduce overhead , it is advised to use a filter expressiopn to print only events of interest.
+       <li> funccount</li>
+       <pre>
+       # funccount 'vfs_*'
+       Tracing 70 functions for "b'vfs_*'"... Hit Ctrl-C to end.
+       ^C
+       FUNC                                    COUNT
+       b'vfs_utimes'                               1
+       b'vfs_rename'                              22
+       b'vfs_statfs'                              23
+       b'vfs_fallocate'                           88
+       b'vfs_unlink'                              97
+       b'vfs_fsync'                              116
+       b'vfs_fsync_range'                        116
+       b'vfs_lock_file'                          360
+       b'vfs_setpos'                             453
+       b'vfs_fstat'                             1223
+       b'vfs_readlink'                          1285
+       b'vfs_llseek'                            1526
+       b'vfs_ioctl'                             1609
+       b'vfs_writev'                            1794
+       b'vfs_open'                              1862
+       b'vfs_statx'                             2942
+       b'vfs_fstatat'                           2942
+       b'vfs_getattr'                           3519
+       b'vfs_getattr_nosec'                     3519
+       b'vfs_write'                            23634
+       b'vfs_read'                             25625
+       Detaching..
+       </pre>
+       funccount counts events, specifically function calls and respond to queries on 
+       * whether a specific kernel or user-level function is being called
+       * the rate at which the function is being called(per second)
        </ol>
        <li> bcc programming </li></ol>
        <li>bpftrace</li></ul>
