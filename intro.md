@@ -151,6 +151,7 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      22:39:51 1375   4  192.168.1.245:59092  R> 142.250.179.229:443  ESTABLISHED
 	      22:47:50 0      4  192.168.1.245:52052  R> 34.237.73.95:443     ESTABLISHED
 	      22:47:50 0      4  192.168.1.245:59070  R> 142.250.179.229:443  ESTABLISHED</pre>
+        This tool uses dynamic tracing of the kernel tcp_retransmit_skb() and tcp_send_loss_probe() functions to only traces TCP retransmits, showing address, port, PID and information state. 
 	   <li>dcsnoop</li>
 	      <pre># dcsnoop
 	      TIME(s)     PID    COMM             T FILE
