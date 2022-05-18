@@ -212,9 +212,15 @@ In this introduction, we will focus on the main use of the BPF subsystem.
        To reduce overhead , it is advised to use a filter expressiopn to print only events of interest.
        <li> funccount</li>
        <pre>
+<<<<<<< HEAD
        # funccount 'tcp_send*'
        Tracing 16 functions for "b'tcp_send*'"... Hit Ctrl-C to end.
        ^C        
+=======
+       # funccount 'vfs_*'
+       Tracing 70 functions for "b'vfs_*'"...
+       Hit Ctrl-C to end. ^C
+>>>>>>> d88860d83a4d33fdd69b6b3bf76019d86e9a54e0
        FUNC                                    COUNT
        b'tcp_send_probe0'                          5
        b'tcp_send_active_reset'                    8
