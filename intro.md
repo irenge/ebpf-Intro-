@@ -213,8 +213,8 @@ In this introduction, we will focus on the main use of the BPF subsystem.
        <li> funccount</li>
        <pre>
        # funccount 'vfs_*'
-       Tracing 70 functions for "b'vfs_*'"... Hit Ctrl-C to end.
-       ^C
+       Tracing 70 functions for "b'vfs_*'"...
+       Hit Ctrl-C to end. ^C
        FUNC                                    COUNT
        b'vfs_utimes'                               1
        b'vfs_rename'                              22
