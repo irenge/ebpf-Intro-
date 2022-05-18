@@ -170,7 +170,9 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      21.748626   29315  rm               M resolv.conf.wlan0.ra
 	      21.750007   2470   dhcpcd           M if_inet6 </pre>
 	      The tool traces every dcache lookup, and shows the process performing the lookup and the filename requested.<br/>
+				
 	     <li>cachestat</li>
+				
 	      <pre># cachestat
 	      HITS   MISSES  DIRTIES HITRATIO   BUFFERS_MB  CACHED_MB
 	      16        1        1   94.12%         1312       3249
