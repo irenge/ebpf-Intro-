@@ -197,7 +197,7 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 	      cachestat prints a one line summary every second (or every custom interval)
 	     showing statistics from the file system cache.
        <li> trace</li>
-       <pre>
+       <p
        # trace 'do_nanosleep(struct hrtimer_sleeper *t) "task: %x", t->task'
        PID     TID     COMM            FUNC             -
        3437    3489    teams           do_nanosleep     task: d4588000
@@ -212,36 +212,32 @@ In this introduction, we will focus on the main use of the BPF subsystem.
        To reduce overhead , it is advised to use a filter expressiopn to print only events of interest.
        <li> funccount</li>
        <pre>
-       # funccount 'vfs_*'
-       Tracing 70 functions for "b'vfs_*'"... Hit Ctrl-C to end.
-       ^C
+       # funccount 'tcp_send*'
+       Tracing 16 functions for "b'tcp_send*'"... Hit Ctrl-C to end.
+       ^C        
        FUNC                                    COUNT
-       b'vfs_utimes'                               1
-       b'vfs_rename'                              22
-       b'vfs_statfs'                              23
-       b'vfs_fallocate'                           88
-       b'vfs_unlink'                              97
-       b'vfs_fsync'                              116
-       b'vfs_fsync_range'                        116
-       b'vfs_lock_file'                          360
-       b'vfs_setpos'                             453
-       b'vfs_fstat'                             1223
-       b'vfs_readlink'                          1285
-       b'vfs_llseek'                            1526
-       b'vfs_ioctl'                             1609
-       b'vfs_writev'                            1794
-       b'vfs_open'                              1862
-       b'vfs_statx'                             2942
-       b'vfs_fstatat'                           2942
-       b'vfs_getattr'                           3519
-       b'vfs_getattr_nosec'                     3519
-       b'vfs_write'                            23634
-       b'vfs_read'                             25625
-       Detaching..
+       b'tcp_send_probe0'                          5
+       b'tcp_send_active_reset'                    8
+       b'tcp_send_loss_probe'                      9
+       b'tcp_send_dupack'                         18
+       b'tcp_send_fin'                            58
+       b'tcp_send_mss'                          2594
+       b'tcp_sendmsg_locked'                    2595
+       b'tcp_sendmsg'                           2595
+       b'tcp_send_delayed_ack'                  2778
+       b'tcp_send_ack'                          3723
+       Detaching...
        </pre>
        funccount counts events, specifically function calls and respond to queries on 
        * whether a specific kernel or user-level function is being called
        * the rate at which the function is being called(per second)
+       <li> stackcount </li>
+       The tool counts stack traces that led to an event. The event can be  a kernel- or user -level function, tracepoint or USDT probe.
+       stackcount respond to queries:
+       * Why is this event called? Whta is the code path?
+       * What are all the different code paths that call this event, and what are their frequencies?
+       stackcount performs a summary entirely in kernel context 
+
        </ol>
        <li> bcc programming </li></ol>
        <li>bpftrace</li></ul>
