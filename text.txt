@@ -1,0 +1,82 @@
+﻿Slide 1
+
+What is bpf ?
+
+BPF  or Berkeley packet filter was created in the early 90s 
+as  a technology to optimize packet filtering tools such as tcpdump.
+It achieved great result, 20 times faster than other packet filtering technology.
+
+The old BPF had 2 32-bit registers, 16 memory slot, and a program counter 
+
+BPF is  is user defined bytecode that is executed by an in-kernel sandboxed virtual machine
+it  s event based , the old BPF  targetted packets , seccomp-BPF (filter incoming syscalls)
+
+If you run tcpdump with a -d flag , it prints out some assembly, that s BPF
+
+Overview
+
+The original BPF had two components:
+	
+- Network tap that collects copies of packets from the network device drivers and delivers them to listening applications
+- Packets filter decides if a packet should be accepted or not, if yes, how much of it to copy to the listening application.
+
+Extended BPF or eBPF
+
+Kernel engineers at Plumgrid led by Alexei felt the need to have more features while working on a SDN product
+They moved registers to 64 bit
+implement maps
+added JIT support that increase bpf performance by 4times 
+diverse action to be taken, bpf can now targets not only packets but kernel function …
+
+The technology is now  up-to-date with  modern processor/computers.
+
+Slide 6
+
+ebpf enables us to run custom codes inside the kernel safely
+it is event-driven , the ebpf program is triggered when application or kernel passes a certain hook point.
+These hooks can be system calls , function entry/exit, tracepoints ...
+
+
+Slide 7
+
+- bpf can attach to much more than send receive packets, kernel dynamic tracing user dynamic tracing and tracepoints
+summarize information and do observability tools
+can be used for intrusion detection
+
+Bpf : actions: not limited to accept or reject, with bpf we can modify the state of the system, we can summarise information for observability tools.
+
+The extended bpf started as a project for sdn configuration at Plumgrid
+BPF can be used for DDoS mitigation to do fast packet drop, for intrusion detection as I can instrument on various thing and alert on suspicious activity, container security
+
+slide 8 
+
+we write a bpf program using python,  C
+compiled it into bpf bytecode using llvm, then we use the bpf() system call to load the program
+then we have the verifier.
+
+ Running inside the kernel can be error prone , the verifier check whether the program is safe then the Virtual Machine the compiler like just in time.
+Ebpf map is where collected data is transferred bidirectional btwn user and kernel space
+
+
+slide 10
+bpf()
+is a central point of communication btwn userspace and kernel space. It s like a swiss army knife of command, the Jack of all trade, it can create maps , delete update  … with different attribute with a mandatory specification of size
+
+slide 11
+Maps – data structures , key value-pair accessed via bpf() can be of any type array, hash…
+
+slide 12 
+
+The verifier ensures 
+	there is nothing in the code that could cause a kernel panic or compromise the kernel
+program terminate safely
+- DAG check : check for control flow: no unbounded loop
+V_ simulates and observer state change of registers and stack from the instruction and all its possible paths
+
+How to use eBPF ?
+How to write ebpf program
+ebpf has its own assembly language instruction which made it difficult to quick learn and write  program in it .
+
+Bcc tools – library that allow to write bpf program easily,  there are a large number of ready tools that can be used even at production level
+     
+
