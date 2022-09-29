@@ -1,4 +1,4 @@
-## Berkeley Packet Filter (BPF) and work plan
+## Analysis for eBPF for safety
 #### Agenda
 <ol> <li>BPF </li>
      <ol> <li> Introduction </li>
@@ -18,6 +18,8 @@
            <li>  Using XDP to create a novel BCC tool for safety </li>
            <li> Improve on the current eBPF verifier</li>
            </ol>
+     <li> How to use ebpf for safety </>
+     <li> Mentorship wrap up </li>
 </ol>
 ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
@@ -25,9 +27,9 @@ ________________________________________________________________________________
 
 The Berkeley Packet Filter(BPF/eBPF) is a technology, developed and gained popularity in 1992 after improving the performance of packet capture tools of that time. 
 
-In 2013, the technology was extended or optimised for modern machine and has been in constant development since then.
+In 2013, the technology was extended or optimised for modern machine and has been in constant development since then. The number of registers in the BPF VM increased from two 32 bit to ten 64-bit registers.
 
-ne of the subsystems in the core Linux Kernel. BPF is the industry standard for packet filtering. It works as an in kernel execution engine that processes virtual instruction set. 
+One of the subsystems in the core Linux Kernel. BPF is the industry standard for packet filtering. It works as an in kernel execution engine that processes virtual instruction set. 
 
 BPF is actually composed of an instruction set, storage objects and helper functions.
 
@@ -205,17 +207,17 @@ The tool traces every dcache lookup, and shows the process performing the lookup
  </pre>
 trace is a multi-tool per event tracing 
 from many different sources: kprobes, uprobes,
- tracepoints and USDT probes. It is used when looking 
- for the arguments when a kernel or user-level function 
- is called, the return value of a function, finding out  
- whether a function is failing nad how a function is called  
- or what the user or kernel level stack trace.
- The tool is suited for infrequently called events. 
- If used for frequently occuring events, trace would 
- produce so much output that would cost significant
- overhead to instrument.
- To reduce overhead , it is advised 
- to use a filter expressiopn to print only events of interest.
+tracepoints and USDT probes. It is used when looking 
+for the arguments when a kernel or user-level function 
+is called, the return value of a function, finding out  
+whether a function is failing nad how a function is called  
+or what the user or kernel level stack trace.
+The tool is suited for infrequently called events. 
+If used for frequently occuring events, trace would 
+produce so much output that would cost significant
+overhead to instrument.
+To reduce overhead , it is advised 
+to use a filter expressiopn to print only events of interest.
  <li> funccount</li>
  <pre>
 <<<<<<< HEAD
