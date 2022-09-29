@@ -23,7 +23,11 @@ ________________________________________________________________________________
 
 ### Introduction
 
-The Berkeley Packet Filter(BPF/eBPF) is one of the subsystems in the core Linux Kernel. BPF is the industry standard for packet filtering. It works as an in kernel execution engine that processes virtual instruction set. 
+The Berkeley Packet Filter(BPF/eBPF) is a technology, developed and gained popularity in 1992 after improving the performance of packet capture tools of that time. 
+
+In 2013, the technology was extended or optimised for modern machine and has been in constant development since then.
+
+ne of the subsystems in the core Linux Kernel. BPF is the industry standard for packet filtering. It works as an in kernel execution engine that processes virtual instruction set. 
 
 BPF is actually composed of an instruction set, storage objects and helper functions.
 
