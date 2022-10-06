@@ -32,7 +32,13 @@ The Berkeley Packet Filter(BPF/eBPF) is a technology developed in 1992. BPF brou
 
 BPF gained popularity then after massively improving the performance of packet capture tools of that time (tcpdump).  
 
-In 2013, BPF was extended and optimised for modern machine. It has been in constant development since then. The number of registers in BPF VM was increased from two 32 bit to ten 64-bit registers; writing more complex bpf programs became possible. This extended version of BPF was four times faster than the original one.
+In 2013, BPF was extended and optimised for modern machine. It has been in constant development since then. The number of registers in BPF VM was increased from two 32 bit to ten 64-bit registers; writing more complex bpf programs became possible. This extended version of BPF was four times faster than the original one. This new version turned BPF into a general purpose execution engine that can be used for a variety of use case ranging from security , networking to observability to name but a few.
+
+### What is BPF? 
+
+Alexei Starovoirtov, the creator of the new version of BPf, define BPF as simply an instruction set, a new language, an extension to C or a safer C. Any programming language can be compiled inot BPF.
+
+
 
 One of the subsystems in the core Linux Kernel. BPF is the industry standard for packet filtering. It works as an in kernel execution engine that processes virtual instruction set. 
 
