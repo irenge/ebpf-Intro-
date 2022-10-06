@@ -30,21 +30,23 @@ The Berkeley Packet Filter(BPF/eBPF) is a technology developed in 1992. BPF brou
 * A virtual machine working efficiently with register-based CPUs
 * The usage of per-application buffers that could filter packets without copying all the packet information.
 
-BPF gained popularity then after massively improving the performance of packet capture tools of that time (tcpdump).  
+BPF gained popularity then after massively improving the performance of packet capture tools of that time (tcpdump). 
 
-In 2013, BPF was extended and optimised for modern machine. It has been in constant development since then. The number of registers in BPF VM was increased from two 32 bit to ten 64-bit registers; writing more complex bpf programs became possible. This extended version of BPF was four times faster than the original one. This new version turned BPF into a general purpose execution engine that can be used for a variety of use case ranging from security , networking to observability to name but a few.
+In 2013, BPF was extended and optimised for modern machine. It has been in constant development since then. The number of registers in BPF VM was increased from two 32 bit to ten 64-bit registers; writing more complex bpf programs became possible. This extended version of BPF  added JIT support that increased the performance by four times.
+
+This new version turned BPF into a general purpose execution engine that can be used for a variety of use case ranging from security , networking to observability to name but a few.
 
 ### What is BPF? 
 
-Alexei Starovoirtov, the creator of the new version of BPf, define BPF as simply an instruction set, a new language, an extension to C or a safer C. Any programming language can be compiled inot BPF.
+BPF can be difficult to define because of its wide range of use cases.
 
+Alexei Starovoirtov, the creator of the new version, define BPF as simply an instruction set, a new language, an extension to C or a safer C. Any programming language can be compiled into BPF.
 
+BPF has an in kernel execution engine that processes this virtual instruction set.
 
-One of the subsystems in the core Linux Kernel. BPF is the industry standard for packet filtering. It works as an in kernel execution engine that processes virtual instruction set. 
+The technology is actually composed of an instruction set, storage objects and helper functions.
 
-BPF is actually composed of an instruction set, storage objects and helper functions.
-
-The technology started as a simple language for writing packet-filtering code for utilities like tcpdump: [McCanne 92](https://www.tcpdump.org/papers/bpf-usenix93.pdf) and grew to a general purpose execution engine; that can be used for a variety of things including creation of advanced performance analysis tools.
+Having started as a simple language for writing packet-filtering code for utilities like tcpdump: [McCanne 92](https://www.tcpdump.org/papers/bpf-usenix93.pdf), BPF grew to a general purpose execution engine; that can be used for a variety of things including creation of advanced performance analysis tools.
 
 With BPF, we can run mini programs on wide variety of kernel and application events.
 
