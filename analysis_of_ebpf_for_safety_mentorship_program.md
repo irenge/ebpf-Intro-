@@ -13,11 +13,15 @@
                     <li> Networking </li>
                          <ul> <li>XDP</li></ul>
                 </ol> 
-      <li> Workplan</li>
-      <ol> <li> BPF current issue proposed by Daniel Borkmann </li>
-           <li>  Using XDP to create a novel BCC tool for safety </li>
-           <li> Improve on the current eBPF verifier</li>
-           </ol>
+      <li> Work done during mentorship</li>
+      <ol> <li> XDP tools </li>
+           <li> Accepted patches in the Linux Kernel </li>
+	   <li> Ongoing </li>
+	   </ol>
+      <li>  Attempted but not accepted </li>
+      <ol>
+      <li>  BPF current issue proposed by Daniel Borkmann </li>
+     </ol>
      <li> How to use ebpf for safety </>
      <li> Mentorship wrap up </li>
 </ol>
@@ -40,13 +44,15 @@ This new version turned BPF into a general purpose execution engine that can be 
 
 BPF can be difficult to define because of its wide range of use cases.
 
-Alexei Starovoirtov, the creator of the new version, define BPF as simply an instruction set, a new language, an extension to C or a safer C. Any programming language can be compiled into BPF.
+Alexei Starovoirtov, the creator of the new version, define BPF as simply an instruction set, a new language, an extension to C or a safer C. Any programming language canbe compiled into BPF.
 
-BPF has an in kernel execution engine that processes this virtual instruction set.
+BPF has an in kernel execution engine  that processes this virtual instruction set.
+
+BPF is an intermediate instruction set run by a VM in the kernel.
 
 BPF can be considered a virtual machine due to its virtual instruction set specification.
 
-The technology is actually composed of an instruction set, storage objects and helper functions.d
+The technology is actually composed of an instruction set, storage objects and helper functions.
 
 Having started as a simple language for writing packet-filtering code for utilities like tcpdump: [McCanne 92](https://www.tcpdump.org/papers/bpf-usenix93.pdf), BPF grew to a general purpose execution engine; that can be used for a variety of things including creation of advanced performance analysis tools.
 
@@ -63,12 +69,15 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 <ol>
 
 <li> Observability</li>
+
+Observability is the understanding of the system through observation by use of tracing tools, sampling tools and tools based on fixed counters. These tools are written using bpf.
+
 BPF is an event driven programming that provides observability or tracing.
 System administrator tools that give extra informations that are not provided by common system administrator tools. 
-    <ul> <li> BCC </li>
+
+<ul> <li> BCC </li>
 	BPF compiler collection (BCC) is the higher level tracing framework developed for BPF.
-	The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++) 
-	for user-level interface.<br/>
+	The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++)  for user-level interface.<br/>
 		<ol><li>bcc tools </li>
 		BCC repository has more than 70 BPF tools for performance and analysis. We will go through 12 BCC tools.
 			<ol><li>execsnoop</li>
