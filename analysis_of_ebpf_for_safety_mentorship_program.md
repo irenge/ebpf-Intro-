@@ -44,7 +44,9 @@ Alexei Starovoirtov, the creator of the new version, define BPF as simply an ins
 
 BPF has an in kernel execution engine that processes this virtual instruction set.
 
-The technology is actually composed of an instruction set, storage objects and helper functions.
+BPF can be considered a virtual machine due to its virtual instruction set specification.
+
+The technology is actually composed of an instruction set, storage objects and helper functions.d
 
 Having started as a simple language for writing packet-filtering code for utilities like tcpdump: [McCanne 92](https://www.tcpdump.org/papers/bpf-usenix93.pdf), BPF grew to a general purpose execution engine; that can be used for a variety of things including creation of advanced performance analysis tools.
 
@@ -52,16 +54,17 @@ With BPF, we can run mini programs on wide variety of kernel and application eve
 
 > An eBPF program is attached to a designated code path in the Kernel. When a code path is traversed, any attached eBPF programs are executed.
 
-The main use of BPF are networking, observability and security.
+The main use of BPF are networking, observability(tracing)  and security.
 
 In this introduction, we will focus on the main use of the BPF subsystem.
 
 ### Practical Use 
 
 <ol><li> Observability</li>
+
     BPF is an event driven programming that provides observability or tracing.
     System administrator tools that give extra informations that are not provided by common system administrator tools. 
-	<ul> <li> BCC </li>
+    <ul> <li> BCC </li>
 	BPF compiler collection (BCC) is the higher level tracing framework developed for BPF.
 	The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++) 
 	for user-level interface.<br/>
