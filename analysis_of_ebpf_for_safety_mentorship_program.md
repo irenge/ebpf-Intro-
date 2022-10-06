@@ -60,10 +60,11 @@ In this introduction, we will focus on the main use of the BPF subsystem.
 
 ### Practical Use 
 
-<ol><li> Observability</li>
+<ol>
 
-    BPF is an event driven programming that provides observability or tracing.
-    System administrator tools that give extra informations that are not provided by common system administrator tools. 
+<li> Observability</li>
+BPF is an event driven programming that provides observability or tracing.
+System administrator tools that give extra informations that are not provided by common system administrator tools. 
     <ul> <li> BCC </li>
 	BPF compiler collection (BCC) is the higher level tracing framework developed for BPF.
 	The framework provides a C programming environment for writing Kernel BPF code and other languages(python, Lua, C++) 
