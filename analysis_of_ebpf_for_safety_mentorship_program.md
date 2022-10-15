@@ -295,11 +295,51 @@ whether a specific kernel or user-level function is being called
     1</pre>
   <li> bcc programming </li>
   <li>bpftrace</li>
-   bpftrace is an open source tracer built on bpf and bcc. bpftrace  provides a high level programming language that  allows you to create powerful one-liners and short tools for performance analysis.  
+bpftrace is an open source tracer built on bpf and bcc. bpftrace  provides a high level programming language that  allows you to create powerful one-liners and short tools for performance analysis.
+Below is an example on summarizing the vfs_read() return value (bytes or error value) as a histogram using bpftrace
+<pre> 
+$ sudo bpftrace  -e 'kretprobe:vfs_read { @bytes = hist(retval); }'
+Attaching 1 probe...
+^C
+@bytes:
+(..., 0)              78 |                                                    |
+[0]                   56 |                                                    |
+[1]                  492 |@@@@@                                               |
+[2, 4)                54 |                                                    |
+[4, 8)              2395 |@@@@@@@@@@@@@@@@@@@@@@@@@@                          |
+[8, 16)             1414 |@@@@@@@@@@@@@@@                                     |
+[16, 32)              30 |                                                    |
+[32, 64)             236 |@@                                                  |
+[64, 128)             12 |                                                    |
+[128, 256)             4 |                                                    |
+[256, 512)             6 |                                                    |
+[512, 1K)              6 |                                                    |
+[1K, 2K)             311 |@@@                                                 |
+[2K, 4K)               0 |                                                    |
+[4K, 8K)               0 |                                                    |
+[8K, 16K)              0 |                                                    |
+[16K, 32K)          4656 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|
+[32K, 64K)             0 |                                                    |
+[64K, 128K)            1 |                                                    |
+[128K, 256K)           0 |                                                    |
+[256K, 512K)           1 |
+</pre>
 
-  </ul>
+BPFtrace being a programming language, an hello world is written as 
+<pre>
+$ sudo bpftrace -e 'BEGIN { printf("Hello, World!\n"); }'
+Attaching 1 probe...
+Hello, World!
+</pre>
+</ul>
   <li> XDP </li>
+
+
+
+
   <li> eBPF Verifer</li>
+  
+
   </ol>
 
 
