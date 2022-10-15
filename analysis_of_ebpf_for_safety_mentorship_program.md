@@ -36,7 +36,7 @@ The Berkeley Packet Filter(BPF/eBPF) is a technology developed in 1992. BPF brou
 
 BPF gained popularity then after massively improving the performance of packet capture tools of that time (tcpdump). 
 
-In 2013, BPF was extended and optimised for modern machine. It has been in constant development since then. The number of registers in BPF VM was increased from two 32 bit to ten 64-bit registers; writing more complex bpf programs became possible. This extended version of BPF  added JIT support that increased the performance by four times.
+In 2013, BPF was extended and optimised for modern machine. This version was known as eBPF. It has been in constant development since then. The number of registers in BPF VM was increased from two 32 bit to ten 64-bit registers; writing more complex bpf programs became possible. This extended version of BPF  added JIT support that increased the performance by four times.
 
 This new version turned BPF into a general purpose execution engine that can be used for a variety of use case ranging from security , networking to observability to name but a few.
 
@@ -44,13 +44,11 @@ This new version turned BPF into a general purpose execution engine that can be 
 
 BPF can be difficult to define because of its wide range of use cases.
 
-Alexei Starovoirtov, the creator of the new version, define BPF as simply an instruction set, a new language, an extension to C or a safer C. Any programming language canbe compiled into BPF.
+Alexei Starovoirtov, the creator of the new version, define BPF as simply an instruction set, a new language, an extension to C or a safer C. Any programming language canbe compiled into BPF, he added.
 
-BPF has an in kernel execution engine  that processes this virtual instruction set.
+eBPF/BPF implements a dedicated virtual machine with custom interpreter. User space programs can attach at various tracepoints within the kernel  and perform  a wide variety of tasks: tracing, monitoring and debugging.
 
-BPF is an intermediate instruction set run by a VM in the kernel.
-
-BPF can be considered a virtual machine due to its virtual instruction set specification.
+BPF can be considered a virtual machine: it has an in kernel execution engine  that processes this virtual instruction set.
 
 The technology is actually composed of an instruction set, storage objects and helper functions.
 
