@@ -294,7 +294,10 @@ whether a specific kernel or user-level function is being called
   b'entry_SYSCALL_64_after_hwframe'
     1</pre>
   <li> bcc programming </li>
-  <li>bpftrace</li></ul>
+  <li>bpftrace</li>
+   bpftrace is an open source tracer built on bpf and bcc. bpftrace  provides a high level programming language that  allows you to create powerful one-liners and short tools for performance analysis.  
+
+  </ul>
   <li> XDP </li>
   <li> eBPF Verifer</li>
   </ol>
