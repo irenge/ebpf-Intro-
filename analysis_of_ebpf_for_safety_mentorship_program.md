@@ -340,8 +340,7 @@ The verifier is a mechanism that determines the safety of the eBPF program and o
 
 The checks are done in two steps:
 <ol>
-<li> Directed Acyclic Graph (DAG) check 
-The verifier checks whether the program will terminate (acyclic), ensuring that the program does not have any backward branches as it must be directed graph 
+<li> Directed Acyclic Graph (DAG) check: the verifier  here checks whether the program will terminate (acyclic), ensuring that the program does not have any backward branches as it must be directed graph, however the program can branch forward to the same point.  
      </li>
    
 </ol>
