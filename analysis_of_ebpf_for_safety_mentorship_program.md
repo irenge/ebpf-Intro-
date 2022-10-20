@@ -334,18 +334,15 @@ Hello, World!
 </ul>
   <li> XDP </li>
 
-
-
-
   <li> eBPF Verifer</li>
 
-ebpf verifier is a mechanism that determine the the safety of the eBPF program and only allow running the programs that pass the safety checks.
+ebpf verifier is a mechanism that determine the safety of the eBPF program and only allow the execution pf the program that passes the safety checks.
 
 The checks are done in two steps:
 <ol>
-<li> Directed Acyclic Graph (DAG) check </li>
+<li> Directed Acyclic Graph (DAG) check 
 The verifier checks whether the program will terminate (acyclic), ensuring that the program does not have any backward branches as it must be directed graph 
-     
+     </li>
    
 </ol>
 
