@@ -338,7 +338,16 @@ Hello, World!
 
 
   <li> eBPF Verifer</li>
-  
+
+ebpf verifier is a mechanism that determine the the safety of the eBPF program and only allow running the programs that pass the safety checks.
+
+The checks are done in two steps:
+<ol>
+<li> Directed Acyclic Graph (DAG) check </li>
+The verifier checks whether the program will terminate (acyclic), ensuring that the program does not have any backward branches as it must be directed graph 
+     
+   
+</ol>
 
   </ol>
 
