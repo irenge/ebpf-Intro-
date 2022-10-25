@@ -336,7 +336,7 @@ Hello, World!
 
   <li> eBPF Verifer</li>
 
-	The verifier is a mechanism that determines the safety of the eBPF program and only allow the execution of the program that passes the safety checks.
+	The verifier is a mechanism that determines the safety of the eBPF program\nand only allow the execution of the program that passes the safety checks.
 
 The checks are done in two steps:
 <ol>
