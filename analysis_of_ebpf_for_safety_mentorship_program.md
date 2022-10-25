@@ -340,10 +340,10 @@ Hello, World!
 
 The checks are done in two steps:
 <ol>
-<li> Directed Acyclic Graph (DAG) check
+<li> Directed Acyclic Graph (DAG) check </li>
 	Here the verifier checks whether the program will terminate (acyclic), ensuring that the program does not have any backward branches as it must be directed graph, however the program can branch forward to the same point.  
 This check is done by doing a depth-first search of the program's control flow graph.
-</li>
+
 
    
 </ol>
