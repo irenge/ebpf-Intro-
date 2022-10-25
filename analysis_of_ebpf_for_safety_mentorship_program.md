@@ -333,7 +333,9 @@ Hello, World!
 </pre>
 </ul>
   <li> XDP </li>
+XDP (eXpress Data Path) is an eBPF-based high-performance data path used to send and receive network packets at high rates by bypassing most of the operating system networking stack.
 
+In XDP, bpf hook is added early in RX path of the kernel, enabling the user supplied bpf program to decide the fate of the packet. With XDP code are executed very early on when network packet arrive at the kernel 
   <li> eBPF Verifer</li>
 
 The verifier is a mechanism that determines the safety of the eBPF program\nand only allow the execution of the program that passes the safety checks.
@@ -346,15 +348,10 @@ The checks are done in two steps:
 This step is done by doing a depth-first search of the program's control flow graph.
 
 2. Simulation check:
-The verifier simlutes the execution of every instruction in the program , starting from the first instruction and try all possible paths the instructions can lead to, while observing the state change of registers and stack 
+The verifier simulates the execution of every instruction in the program , starting from the first instruction and try all possible paths the instructions can lead to, while observing the state change of registers and stack 
  
- 
-
-
-
-
-### Workplan
-   - BPF current issue proposed by Daniel Borkmann
+ ### Workplan
+ - BPF current issue proposed by Daniel Borkmann
    		* Move samples/bpf to BPF selftests folder to improve on test_prog BPFci 		- currently ongoing, rewriting the Makefile
 		* Require reading on Makefile writing 
 		* Duration: ongoing - one more week - expected to complete 26th May
