@@ -335,7 +335,27 @@ Hello, World!
   <li> XDP </li>
 XDP (eXpress Data Path) is an eBPF-based high-performance data path used to send and receive network packets at high rates by bypassing most of the operating system networking stack.
 
-In XDP, bpf hook is added early in RX path of the kernel, enabling the user supplied bpf program to decide the fate of the packet. With XDP code are executed very early on when network packet arrive at the kernel 
+In XDP, bpf hook is added early in RX path of the kernel, enabling the user supplied bpf program to decide the fate of the packet. With XDP code are executed very early on when network packet arrive at the kernel.
+
+Unsurprisingly XDP programs are controlled through bpf syscall and loaded  using the program type BPF_PROG_TYPE_XDP.
+
+The execution of an XDP program can happen in one of the three modes:
+1. Native XDP:
+    XDP BPF program is  run directly out of the networking driver's early receive path. Most drivers support XDP. 
+    The command below will check whether the driver support XDP
+    <pre>
+	# git grep -l XDP_SETUP_PROG drivers/
+    </pre>
+2. Offloaded XDP
+    
+   XDP BPF program is directly offloaded into th NIC instead of being executed by host CPU.
+   The command below checks whether the driver support XDP
+<pre>
+ # git grep -l XDP_SETUP_PROG_HW drivers/
+    </pre>
+
+
+
   <li> eBPF Verifer</li>
 
 The verifier is a mechanism that determines the safety of the eBPF program\nand only allow the execution of the program that passes the safety checks.
@@ -345,10 +365,15 @@ The checks are done in two steps:
 1. Directed Acyclic Graph (DAG) check
 	Here the verifier checks whether the program will terminate (acyclic), ensuring that the program does not have any backward branches as it must be directed graph, though the program can branch forward to the same point. Program with unreachable instruction will not not be allowed to run.  
 
+
 This step is done by doing a depth-first search of the program's control flow graph.
+The CFG enforce two eBPF rules:
+
+a) No back-edges
+b) No unreachable instruction
 
 2. Simulation check:
-The verifier simulates the execution of every instruction in the program , starting from the first instruction and try all possible paths the instructions can lead to, while observing the state change of registers and stack 
+The verifier simulates the execution of every instruction in the program, starting from the first instruction and try all possible paths the instructions can lead to, while observing the state change of registers and stack making sure no invalid operations are performed.
  
  ### Workplan
  - BPF current issue proposed by Daniel Borkmann
