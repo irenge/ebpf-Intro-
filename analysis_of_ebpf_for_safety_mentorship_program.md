@@ -349,12 +349,14 @@ The execution of an XDP program can happen in one of the three modes:
 2. Offloaded XDP
     
    XDP BPF program is directly offloaded into th NIC instead of being executed by host CPU.
-   The command below checks whether the driver support XDP
+   The command below checks whether the driver support XDP. 
 <pre>
  # git grep -l XDP_SETUP_PROG_HW drivers/
     </pre>
 
+3. Generic XDP
 
+This is a test-mode for developers, XDP program is loaded on virtualised card - veth devices.
 
   <li> eBPF Verifer</li>
 
