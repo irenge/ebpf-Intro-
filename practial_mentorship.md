@@ -3,7 +3,7 @@
 
 During this mentorship, few patches were accepted and merges into the Linux Kernel
 As my profile can show, I submitted more than 20 patches from the link 
-<a href="shorturl.at/dEJN2" target="shorturl.at/dEJN2">here</a>
+ [here](https:shorturl.at/dEJN2)
 
 
  
