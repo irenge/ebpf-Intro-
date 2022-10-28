@@ -1,5 +1,6 @@
 ## Work done during mentorship
-	1. Accepted patches in the Linux Kernel
+<ol>
+<li> Accepted patches in the Linux Kernel</li>
 
 During this mentorship, few patches were accepted and merges into the Linux Kernel.  As my profile can show [here](https://linuxlists.cc/profile/52567/Jules_Irenge), I submitted more than 30 patches.
 
@@ -8,14 +9,14 @@ Some of the patches have been merged to the Linux Kernel [1] (https://lore.kerne
 All accepted patches can be found on [2] (https://lore.kernel.org/all/?q=Jules+Irenge)
 
 Practice makes better, working in Kernel is no exception. The more I sent patches the better I become at it.   One patch from which I learnt a lot is one that I made a change that appear simple in the BPF subsystem  but ended up being a bug fix [3](https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git/commit/?id=9fad7fe5b298).<br/>The interaction I had with the BPF community in the mailing list was particularly welcoming, fun and learning experience.
-
-	2. Attempted but not accepted
+<li> Attempted but not accepted </li>
  BPF current issue proposed by Daniel Borkmann
 
-	3. Ongoing
+<li> Ongoing </li>
 <ul>
 <li> xdp tools </li>
  <li> bcc tool issue assigned </li> 
 </ul>
-	4. Future task
+<li> Future task </li>
+</ol>
 
