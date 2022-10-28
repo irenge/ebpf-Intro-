@@ -9,9 +9,10 @@ All accepted patches can be found on [2] (https://lore.kernel.org/all/?q=Jules+I
 
 Practice makes better, working in Kernel is no exception. The more I sent patches the better I become at it.   One patch from which I learnt a lot is one that I made a change that appear simple in the BPF subsystem  but ended up being a bug fix [3](https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git/commit/?id=9fad7fe5b298).<br/>The interaction I had with the BPF community in the mailing list was particularly welcoming, fun and learning experience.
 
- 
- Ongoing
- Attempted but not accepted
- BPF current issue proposed by Daniel Borkmann </li>
-     </ol>
+2. Attempted but not accepted
+ BPF current issue proposed by Daniel Borkmann
+
+3. Ongoing
+
+4. Future task
 
