@@ -13,8 +13,9 @@ Practice makes better, working in Kernel is no exception. The more I sent patche
  BPF current issue proposed by Daniel Borkmann
 
 3. Ongoing
-    a. xdp tools
-    b. 
-
+  <ul>
+<li> xdp tools </li>
+ <li> bcc tool issue assigned </li> 
+</ul>
 4. Future task
 
