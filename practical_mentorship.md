@@ -28,8 +28,10 @@ But the long patch was not accepted, I suspect it was because it features a lot 
 <ul>
 <li> xdp tools </li>
 
-I spent time reading about xdp and practicing. I ended up building a tool to count how many packets have been transmitted, passed and dropped
-the tool present a percentage of dropped packet.
+I spent time reading about xdp and practicing.
+ - https://github.com/xdp-project/xdp-tutorial
+
+I ended up building a tool to count how many packets have been transmitted, passed and dropped and present a percentage of dropped packet.
 
 
 
