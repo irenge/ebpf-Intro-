@@ -35,6 +35,9 @@ I spent time reading about xdp and solving the exercise on the below:
 I ended up building two xdp tool  and a bcc tool to exercise the skills learned.
 
 1. A tool that accepts all TCP packets, reject UDP and retransmit/bounce other type of  packets back to the NIC and count how many packets have been transmitted, passed and dropped and present a percentage of dropped packet.
+
+Source code can be downloaded here - https://github.com/irenge/bcc-tools-devel/tree/main/count_packets
+
 <pre> 
 $ sudo python countp.py -dev wlp5s0
 
