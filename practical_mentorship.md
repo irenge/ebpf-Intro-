@@ -33,7 +33,42 @@ I spent time reading about xdp and solving the exercise on the below:
  - https://github.com/xdp-project/xdp-tutorial
 
 I ended up building two xdp tool  and a bcc tool to exercise the skills learned.
+
 1. A tool that accepts all TCP packets, reject UDP and retransmit/bounce other type of  packets back to the NIC and count how many packets have been transmitted, passed and dropped and present a percentage of dropped packet.
+<pre> 
+$ sudo python countp.py -dev wlp5s0
+
+Packets count: UDP packets - drooped  TCP - accepted -  Other type of  Packet - bounced to NIC, hit CTRL+C to stop
+XDP_PASS 3 pkt/s
+Percentage dropped 0 % 
+XDP_PASS 1869 pkt/s
+Percentage dropped 0 % 
+XDP_TX 2 pkt/s
+Total 1871 pkts/s
+XDP_TX 1 pkt/s
+Total 1870 pkts/s
+XDP_PASS 1588 pkt/s
+Percentage dropped 0 % 
+XDP_DROP 14 pkt/s
+XDP_TX 0 pkt/s
+Total 1602 pkts/s
+XDP_TX 0 pkt/s
+Total 1602 pkts/s
+XDP_PASS 1772 pkt/s
+Percentage dropped 0 % 
+XDP_DROP 4 pkt/s
+XDP_TX 1 pkt/s
+Total 1777 pkts/s
+XDP_TX 0 pkt/s
+Total 1776 pkts/s
+XDP_DROP 1954 pkt/s
+XDP_TX 1 pkt/s
+Total 1955 pkts/s
+XDP_DROP 2113 pkt/s
+XDP_TX 0 pkt/s
+Total 2113 pkts/s
+</pre>
+
 2. A tool that block a specific IP 
 3. a bcc tool that use perf 
 
