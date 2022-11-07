@@ -28,15 +28,14 @@ But the long patch was not accepted, I suspect it was because it features a lot 
 <ul>
 <li> xdp tools </li>
 
-I spent time reading about xdp and practicing.
+I spent time reading about xdp and solving the exercise on the below:
+
  - https://github.com/xdp-project/xdp-tutorial
 
-I ended up building a tool to count how many packets have been transmitted, passed and dropped and present a percentage of dropped packet.
-
-
-
-
-
+I ended up building two xdp tool  and a bcc tool to exercise the skills learned.
+1. A tool that accepts all TCP packets, reject UDP and retransmit/bounce other type of  packets back to the NIC and count how many packets have been transmitted, passed and dropped and present a percentage of dropped packet.
+2. A tool that block a specific IP 
+3. a bcc tool that use perf 
 
 On my studies of the BPF subsystem
  <li> bcc tool issue assigned </li> 
