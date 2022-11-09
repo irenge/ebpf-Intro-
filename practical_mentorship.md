@@ -52,13 +52,6 @@ XDP_TX 1 pkt/s
 Total 1870 pkts/s
 XDP_PASS 1588 pkt/s
 Percentage dropped 0 % 
-XDP_DROP 14 pkt/s
-XDP_TX 0 pkt/s
-Total 1602 pkts/s
-XDP_TX 0 pkt/s
-Total 1602 pkts/s
-XDP_PASS 1772 pkt/s
-Percentage dropped 0 % 
 XDP_DROP 4 pkt/s
 XDP_TX 1 pkt/s
 Total 1777 pkts/s
@@ -71,9 +64,41 @@ XDP_DROP 2113 pkt/s
 XDP_TX 0 pkt/s
 Total 2113 pkts/s
 </pre>
+ 
+2. A tool that display how many packets passed, dropped, bounced, how many TCP packets, UDP packets and ping the machine received using XDP technology.
 
-2. A tool that block a specific IP 
-3. a bcc tool that use perf 
+<pre>
+Packet counts, hit CTRL+C to stop
+XDP_PASS 2 pkt/s
+Percentage dropped 0 % 
+UDP  2 pkt/s
+XDP_PASS 1165 pkt/s
+Percentage dropped 0 %  
+TCP  0 pkt/s
+UDP  736 pkt/s
+XDP_PASS 758 pkt/s
+Percentage dropped 0 % 
+TCP  845 pkt/s
+XDP_PASS 805 pkt/s
+Percentage dropped 0 % 
+TCP  862 pkt/s
+XDP_PASS 855 pkt/s
+Percentage dropped 0 % 
+TCP  855 pkt/s
+XDP_PASS 883 pkt/s
+Percentage dropped 0 % 
+TCP  838 pkt/s
+XDP_PASS 862 pkt/s
+Percentage dropped 0 %
+TCP  1 pkt/s
+UDP  0 pkt/s
+Ping  1 pkt/s
+XDP_PASS 0 pkt/s
+Percentage dropped 0 %  
+</pre> 
+
+3. A tool that block a specific IP 
+4. a bcc tool that use perf 
 
 On my studies of the BPF subsystem
  <li> bcc tool issue assigned </li> 
