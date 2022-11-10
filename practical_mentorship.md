@@ -97,12 +97,15 @@ XDP_PASS 0 pkt/s
 Percentage dropped 0 %  
 </pre> 
 
-3. A tool that block a specific IP 
-4. a bcc tool that use perf 
+3. A tool that block a specific IP  
 
 On my studies of the BPF subsystem
- <li> bcc tool issue assigned </li> 
+ <li> bcc tool issue assigned </li>
+- I am currently working on updating a bcc tool named killsnoop to also use tracepoints to be able to run on newer and older Kernel.
+  
 </ul>
 <li> Future task </li>
+- Enhance eBPF 
+
 </ol>
 
